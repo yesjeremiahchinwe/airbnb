@@ -23,6 +23,7 @@ menuBtn.addEventListener("click", () => {
 
 /* ---------- Sub header ------------ */
 const addGuests = document.getElementById("addGuests");
+const addInfants = document.getElementById("addInfants");
 const subHeaderWrapper = document.querySelector(".sub-header-wrapper");
 const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
@@ -61,8 +62,8 @@ guestsSection.addEventListener("click", () => {
       childrenCount.textContent = childrenCountNum;
 
       if (adultCountNum === 0) {
-        adultCountNum = 1
-        adultCount.textContent = adultCountNum
+        adultCountNum = 1;
+        adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
 
@@ -71,14 +72,13 @@ guestsSection.addEventListener("click", () => {
       const originText = addGuests.textContent;
       const spanEl = document.createElement("span");
       if (originText == 1) {
-        spanEl.textContent = " guest";
+        spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
         addGuests.appendChild(spanEl);
       } else {
-        spanEl.textContent = " guests";
+        spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
         addGuests.appendChild(spanEl);
       }
     });
-
 
     childrenMinusBtn.addEventListener("click", () => {
       if (childrenCountNum > 0) {
@@ -89,20 +89,18 @@ guestsSection.addEventListener("click", () => {
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest";
+          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         } else if (originText == 0) {
           addGuests.textContent = "Add guest";
         } else {
-          spanEl.textContent = " guests";
+          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         }
       }
 
       childrenCount.textContent = childrenCountNum;
     });
-
-
 
     /* -------- Adults Count --------- */
     const adultCount = document.getElementById("adultCount");
@@ -120,10 +118,10 @@ guestsSection.addEventListener("click", () => {
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest";
+          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         } else {
-          spanEl.textContent = " guests";
+          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         }
       } else {
@@ -132,15 +130,14 @@ guestsSection.addEventListener("click", () => {
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest";
+          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         } else {
-          spanEl.textContent = " guests";
+          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
           addGuests.appendChild(spanEl);
         }
       }
     });
-
 
     adultMinusBtn.addEventListener("click", () => {
       if (adultCountNum > 0) {
@@ -148,8 +145,8 @@ guestsSection.addEventListener("click", () => {
         adultCount.textContent = adultCountNum;
 
         if (childrenCountNum != 0 && adultCountNum < 2) {
-            adultCountNum = 1
-            adultCount.textContent = 1
+          adultCountNum = 1;
+          adultCount.textContent = 1;
         }
 
         if (childrenCountNum !== 0) {
@@ -158,12 +155,12 @@ guestsSection.addEventListener("click", () => {
           const spanEl = document.createElement("span");
 
           if (originText == 1) {
-            spanEl.textContent = " guest";
+            spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
             addGuests.appendChild(spanEl);
           } else if (originText == 0) {
             addGuests.textContent = "Add guest";
           } else {
-            spanEl.textContent = " guests";
+            spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
             addGuests.appendChild(spanEl);
           }
         } else {
@@ -172,42 +169,80 @@ guestsSection.addEventListener("click", () => {
           const spanEl = document.createElement("span");
 
           if (originText == 1) {
-            spanEl.textContent = " guest";
+            spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `;
             addGuests.appendChild(spanEl);
           } else if (originText == 0) {
             addGuests.textContent = "Add guest";
           } else {
-            spanEl.textContent = " guests";
+            spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `;
             addGuests.appendChild(spanEl);
           }
         }
       }
     });
 
-
-
     /* ------------ Infants Count ----------- */
     const infantCount = document.getElementById("infantCount");
     const infantPlusBtn = document.getElementById("infantsPlusBtn");
     const infantMinusBtn = document.getElementById("infantsMinusBtn");
-
     let infantCountNum = 0;
-
     infantCount.textContent = infantCountNum;
+
 
     infantPlusBtn.addEventListener("click", () => {
       infantCountNum++;
       infantCount.textContent = infantCountNum;
 
-      //   addGuests.textContent = numAdult.length + numInfant.length;
+      if (adultCountNum === 0) {
+        adultCountNum = 1;
+        adultCount.textContent = adultCountNum;
+        addGuests.textContent = childrenCountNum + adultCountNum;
+      }
+
+      const originText = addGuests.textContent;
+      const spanEl = document.createElement("span");
+      if (originText == 1) {
+        spanEl.textContent = " guest, "
+        addGuests.appendChild(spanEl);
+      }
+
+      if (infantCountNum !== 0) {
+        addInfants.textContent = infantCountNum;
+        const originInfantText = addInfants.textContent;
+        const infantSpanEl = document.createElement("span");
+
+        if (originInfantText == 1) {
+          infantSpanEl.textContent = " infant, ";
+          addInfants.appendChild(infantSpanEl);
+        } else {
+          infantSpanEl.textContent = " infants, ";
+          addInfants.appendChild(infantSpanEl);
+        }
+      }
     });
 
     infantMinusBtn.addEventListener("click", () => {
       if (infantCountNum > 0) {
         infantCountNum--;
-      }
 
-      infantCount.textContent = infantCountNum;
+        if (infantCountNum < 1) {
+          addInfants.textContent = "";
+          infantCount.textContent = infantCountNum;
+        } else {
+          infantCount.textContent = infantCountNum;
+          addInfants.textContent = infantCountNum;
+          const originInfantText = addInfants.textContent;
+          const infantSpanEl = document.createElement("span");
+
+          if (originInfantText == 1) {
+            infantSpanEl.textContent = " infant, ";
+            addInfants.appendChild(infantSpanEl);
+          } else {
+            infantSpanEl.textContent = " infants, ";
+            addInfants.appendChild(infantSpanEl);
+          }
+        }
+      }
     });
 
     /* ------------ Pets Count ---------- */

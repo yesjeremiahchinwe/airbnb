@@ -148,6 +148,11 @@ li {
   border-left: 0px solid transparent;
 }
 
+.last-filter div {
+  height: 100%;
+  margin-top: -0.75rem;
+}
+
 .filter h6,
 .last-filter h6 {
   font-size: 0.9rem;
@@ -155,7 +160,7 @@ li {
 }
 
 .filter p,
-.last-filter p {
+.last-filter span {
   color: #717171;
   margin-top: -0.5rem;
 }
