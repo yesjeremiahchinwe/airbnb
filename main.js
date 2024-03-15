@@ -60,6 +60,12 @@ guestsSection.addEventListener("click", () => {
       childrenCountNum++;
       childrenCount.textContent = childrenCountNum;
 
+      if (adultCountNum === 0) {
+        adultCountNum = 1
+        adultCount.textContent = adultCountNum
+        addGuests.textContent = childrenCountNum + adultCountNum;
+      }
+
       addGuests.textContent = childrenCountNum + adultCountNum;
 
       const originText = addGuests.textContent;
@@ -140,6 +146,11 @@ guestsSection.addEventListener("click", () => {
       if (adultCountNum > 0) {
         adultCountNum--;
         adultCount.textContent = adultCountNum;
+
+        if (childrenCountNum != 0 && adultCountNum < 2) {
+            adultCountNum = 1
+            adultCount.textContent = 1
+        }
 
         if (childrenCountNum !== 0) {
           addGuests.textContent = adultCountNum + childrenCountNum;
