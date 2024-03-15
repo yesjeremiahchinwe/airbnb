@@ -53,9 +53,7 @@ guestsSection.addEventListener("click", () => {
     const childrenCount = document.getElementById("childrenCount");
     const childrenPlusBtn = document.getElementById("childrenPlusBtn");
     const childrenMinusBtn = document.getElementById("childrenMinusBtn");
-
     let childrenCountNum = 0;
-
     childrenCount.textContent = childrenCountNum;
 
     childrenPlusBtn.addEventListener("click", () => {
@@ -63,23 +61,47 @@ guestsSection.addEventListener("click", () => {
       childrenCount.textContent = childrenCountNum;
 
       addGuests.textContent = childrenCountNum + adultCountNum;
+
+      const originText = addGuests.textContent;
+      const spanEl = document.createElement("span");
+      if (originText == 1) {
+        spanEl.textContent = " guest";
+        addGuests.appendChild(spanEl);
+      } else {
+        spanEl.textContent = " guests";
+        addGuests.appendChild(spanEl);
+      }
     });
+
 
     childrenMinusBtn.addEventListener("click", () => {
       if (childrenCountNum > 0) {
         childrenCountNum--;
 
         addGuests.textContent = childrenCountNum + adultCountNum;
+        const originText = addGuests.textContent;
+        const spanEl = document.createElement("span");
+
+        if (originText == 1) {
+          spanEl.textContent = " guest";
+          addGuests.appendChild(spanEl);
+        } else if (originText == 0) {
+          addGuests.textContent = "Add guest";
+        } else {
+          spanEl.textContent = " guests";
+          addGuests.appendChild(spanEl);
+        }
       }
 
       childrenCount.textContent = childrenCountNum;
     });
 
+
+
     /* -------- Adults Count --------- */
     const adultCount = document.getElementById("adultCount");
     const adultPlusBtn = document.getElementById("adultsPlusBtn");
     const adultMinusBtn = document.getElementById("adultsMinusBtn");
-
     adultCount.textContent = adultCountNum;
 
     adultPlusBtn.addEventListener("click", () => {
@@ -87,9 +109,29 @@ guestsSection.addEventListener("click", () => {
       adultCount.textContent = adultCountNum;
 
       if (childrenCountNum === 0) {
-        addGuests.textContent = adultCountNum
+        addGuests.textContent = adultCountNum;
+        const originText = addGuests.textContent;
+        const spanEl = document.createElement("span");
+
+        if (originText == 1) {
+          spanEl.textContent = " guest";
+          addGuests.appendChild(spanEl);
+        } else {
+          spanEl.textContent = " guests";
+          addGuests.appendChild(spanEl);
+        }
       } else {
-        addGuests.textContent = childrenCountNum + adultCountNum
+        addGuests.textContent = childrenCountNum + adultCountNum;
+        const originText = addGuests.textContent;
+        const spanEl = document.createElement("span");
+
+        if (originText == 1) {
+          spanEl.textContent = " guest";
+          addGuests.appendChild(spanEl);
+        } else {
+          spanEl.textContent = " guests";
+          addGuests.appendChild(spanEl);
+        }
       }
     });
 
@@ -100,12 +142,38 @@ guestsSection.addEventListener("click", () => {
         adultCount.textContent = adultCountNum;
 
         if (childrenCountNum !== 0) {
-            addGuests.textContent = adultCountNum + childrenCountNum;
+          addGuests.textContent = adultCountNum + childrenCountNum;
+          const originText = addGuests.textContent;
+          const spanEl = document.createElement("span");
+
+          if (originText == 1) {
+            spanEl.textContent = " guest";
+            addGuests.appendChild(spanEl);
+          } else if (originText == 0) {
+            addGuests.textContent = "Add guest";
+          } else {
+            spanEl.textContent = " guests";
+            addGuests.appendChild(spanEl);
+          }
         } else {
-            addGuests.textContent = adultCountNum;
-        } 
+          addGuests.textContent = adultCountNum;
+          const originText = addGuests.textContent;
+          const spanEl = document.createElement("span");
+
+          if (originText == 1) {
+            spanEl.textContent = " guest";
+            addGuests.appendChild(spanEl);
+          } else if (originText == 0) {
+            addGuests.textContent = "Add guest";
+          } else {
+            spanEl.textContent = " guests";
+            addGuests.appendChild(spanEl);
+          }
+        }
       }
     });
+
+
 
     /* ------------ Infants Count ----------- */
     const infantCount = document.getElementById("infantCount");
@@ -120,7 +188,7 @@ guestsSection.addEventListener("click", () => {
       infantCountNum++;
       infantCount.textContent = infantCountNum;
 
-    //   addGuests.textContent = numAdult.length + numInfant.length;
+      //   addGuests.textContent = numAdult.length + numInfant.length;
     });
 
     infantMinusBtn.addEventListener("click", () => {
@@ -144,7 +212,7 @@ guestsSection.addEventListener("click", () => {
       petCountNum++;
       petCount.textContent = petCountNum;
 
-    //   addGuests.textContent = numAdult.length + numPet.length;
+      //   addGuests.textContent = numAdult.length + numPet.length;
     });
 
     petMinusBtn.addEventListener("click", () => {
