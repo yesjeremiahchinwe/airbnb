@@ -49,6 +49,7 @@ guestsSection.addEventListener("click", () => {
 
     /* -------- Guest Popup ----------- */
     /* ------------ Children Count ----------- */
+    let adultCountNum = 0;
     const childrenCount = document.getElementById("childrenCount");
     const childrenPlusBtn = document.getElementById("childrenPlusBtn");
     const childrenMinusBtn = document.getElementById("childrenMinusBtn");
@@ -61,12 +62,14 @@ guestsSection.addEventListener("click", () => {
       childrenCountNum++;
       childrenCount.textContent = childrenCountNum;
 
-    //   addGuests.textContent = numAdult.length + numChildren.length;
+      addGuests.textContent = childrenCountNum + adultCountNum;
     });
 
     childrenMinusBtn.addEventListener("click", () => {
       if (childrenCountNum > 0) {
         childrenCountNum--;
+
+        addGuests.textContent = childrenCountNum + adultCountNum;
       }
 
       childrenCount.textContent = childrenCountNum;
@@ -77,22 +80,31 @@ guestsSection.addEventListener("click", () => {
     const adultPlusBtn = document.getElementById("adultsPlusBtn");
     const adultMinusBtn = document.getElementById("adultsMinusBtn");
 
-    let adultCountNum = 0;
     adultCount.textContent = adultCountNum;
 
     adultPlusBtn.addEventListener("click", () => {
       adultCountNum++;
       adultCount.textContent = adultCountNum;
 
-    //   addGuests.textContent = numAdult.length + numAdult.length;
+      if (childrenCountNum === 0) {
+        addGuests.textContent = adultCountNum
+      } else {
+        addGuests.textContent = childrenCountNum + adultCountNum
+      }
     });
+
 
     adultMinusBtn.addEventListener("click", () => {
       if (adultCountNum > 0) {
         adultCountNum--;
-      }
+        adultCount.textContent = adultCountNum;
 
-      adultCount.textContent = adultCountNum;
+        if (childrenCountNum !== 0) {
+            addGuests.textContent = adultCountNum + childrenCountNum;
+        } else {
+            addGuests.textContent = adultCountNum;
+        } 
+      }
     });
 
     /* ------------ Infants Count ----------- */
