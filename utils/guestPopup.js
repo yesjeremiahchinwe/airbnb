@@ -13,7 +13,7 @@ function guestPop() {
       <i class="bi bi-dash fs-4"></i>
     </button>
 
-    <div id='adultsCount'></div>
+    <div id='adultCount'></div>
 
     <button id='adultsPlusBtn' class="btn border-1 border rounded-pill" role="button">
       <i class="bi bi-plus fs-4"></i>
@@ -52,7 +52,7 @@ function guestPop() {
         <i class="bi bi-dash fs-4"></i>
       </button>
 
-      <div id='infantsCount'></div>
+      <div id='infantCount'></div>
 
       <button id='infantsPlusBtn' class="btn border-1 border rounded-pill" role="button">
         <i class="bi bi-plus fs-4"></i>
@@ -71,7 +71,7 @@ function guestPop() {
         <i class="bi bi-dash fs-4"></i>
       </button>
 
-      <div id='petsCount'></div>
+      <div id='petCount'></div>
 
       <button id='petsPlusBtn' class="btn border-1 border rounded-pill" role="button">
         <i class="bi bi-plus fs-4"></i>
