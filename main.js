@@ -1,5 +1,4 @@
 import "./node_modules/bootstrap/dist/js/bootstrap.bundle";
-// import "./node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 import "./sass/home.scss";
 import guestPop from "./utils/guestPopup";
@@ -25,11 +24,11 @@ menuBtn.addEventListener("click", () => {
 const addGuests = document.getElementById("addGuests");
 const addInfants = document.getElementById("addInfants");
 const addPets = document.getElementById("addPets");
-const dottedLines = document.getElementById("dottedLines");
 const subHeaderWrapper = document.querySelector(".sub-header-wrapper");
 const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
 const searchText = document.createElement("span");
+const closeBtn = document.getElementById("closeBtn")
 const guestPopupContainer = document.getElementById("popUpGuests");
 searchText.textContent = "Search";
 
@@ -37,6 +36,7 @@ let isGuestPopopOpen = false;
 
 if (addGuests.textContent != 1) {
   addGuests.textContent = "Add guest";
+  addGuests.classList.toggle("defaultColor")
 }
 
 guestsSection.addEventListener("click", () => {
@@ -55,6 +55,10 @@ guestsSection.addEventListener("click", () => {
     searchContainer.classList.add("showText");
 
     /* -------- Guest Popup ----------- */
+
+    addGuests.classList.add("darkText")
+    addInfants.classList.add("darkText")
+    addPets.classList.add("darkText")
     /* ------------ Children Count ----------- */
 
     const childrenCount = document.getElementById("childrenCount");
@@ -89,7 +93,10 @@ guestsSection.addEventListener("click", () => {
 
       if (savedAdultCount === 0) {
         adultCountNum = 1;
-        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
         adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
@@ -104,11 +111,17 @@ guestsSection.addEventListener("click", () => {
       const originText = addGuests.textContent;
       const spanEl = document.createElement("span");
       if (originText == 1) {
-        spanEl.textContent = " guest";
+        spanEl.textContent = " guest"
         addGuests.appendChild(spanEl);
       } else {
-        spanEl.textContent = " guests";
+        spanEl.textContent = " guests"
         addGuests.appendChild(spanEl);
+      }
+
+      if (childrenCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
+      } else {
+        closeBtn.classList.remove("showCloseBtn")
       }
     });
 
@@ -147,6 +160,12 @@ guestsSection.addEventListener("click", () => {
       }
 
       childrenCount.textContent = childrenCountNum;
+
+      if (childrenCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
+      } else {
+        closeBtn.classList.remove("showCloseBtn")
+      }
     });
 
     /* -------- Adults Count --------- */
@@ -166,7 +185,7 @@ guestsSection.addEventListener("click", () => {
         window.sessionStorage.getItem("childrenCount")
       );
 
-      if (adultCountNum < 16 && savedChildrenCount + adultCountNum !== 16) {
+      if (savedAdultCount < 16 && savedChildrenCount + savedAdultCount !== 16) {
         window.sessionStorage.setItem(
           "adultCount",
           JSON.stringify(adultCountNum)
@@ -217,6 +236,13 @@ guestsSection.addEventListener("click", () => {
           addGuests.appendChild(spanEl);
         }
       }
+
+      /* ------------ Close Button ---------- */
+      if (adultCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
+      } else {
+        closeBtn.classList.remove("showCloseBtn")
+      }
     });
 
     adultMinusBtn.addEventListener("click", () => {
@@ -228,6 +254,9 @@ guestsSection.addEventListener("click", () => {
       );
       const savedInfantCount = JSON.parse(
         window.sessionStorage.getItem("infantCount")
+      );
+      const savedPetCount = JSON.parse(
+        window.sessionStorage.getItem("petCount")
       );
 
       if (savedAdultCount > 0) {
@@ -250,7 +279,10 @@ guestsSection.addEventListener("click", () => {
         (savedPetCount != 0 && savedAdultCount < 2)
       ) {
         adultCountNum = 1;
-        adultCount.textContent = 1;
+        adultCount.textContent = adultCountNum;
+      } else {
+        adultCountNum = savedAdultCount;
+        adultCount.textContent = savedAdultCount;
       }
 
       if (savedChildrenCount !== 0) {
@@ -281,6 +313,12 @@ guestsSection.addEventListener("click", () => {
           spanEl.textContent = " guests";
           addGuests.appendChild(spanEl);
         }
+      }
+
+      if (adultCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
+      } else {
+        closeBtn.classList.remove("showCloseBtn")
       }
     });
 
@@ -320,16 +358,12 @@ guestsSection.addEventListener("click", () => {
 
       if (savedAdultCount === 0) {
         adultCountNum = 1;
-        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
         adultCount.textContent = adultCountNum;
-        addGuests.textContent = childrenCountNum + adultCountNum;
-      }
-
-      const originText = addGuests.textContent;
-      const spanEl = document.createElement("span");
-      if (originText == 1) {
-        spanEl.textContent = " guest";
-        addGuests.appendChild(spanEl);
+        addGuests.textContent = childrenCountNum + adultCountNum + " guest";
       }
 
       if (infantCountNum !== 0) {
@@ -346,15 +380,16 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      
-      if (savedPetCount >= 1 && infantCountNum >= 1) {
-        dottedLines.classList.add("showDottedLines");
-        addPets.classList.add("hidePets");
-      } else if (savedPetCount >= 1) {
-        addPets.classList.remove("hidePets");
+      const subText = addInfants.textContent.substring(0, 5) + "..."
+
+      if (addInfants.textContent.length > 8) {
+        addInfants.textContent = subText
+      }
+
+      if (infantCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
       } else {
-        dottedLines.classList.remove("showDottedLines");
-        addPets.classList.add("hidePets");
+        closeBtn.classList.remove("showCloseBtn")
       }
     });
 
@@ -398,15 +433,16 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      if (savedPetCount >= 1 && infantCountNum >= 1) {
-        dottedLines.classList.add("showDottedLines");
-        addPets.classList.add("hidePets");
-      } else if (savedPetCount >= 1 || infantCountNum === 0) {
-        addPets.classList.remove("hidePets");
-        dottedLines.classList.remove("showDottedLines");
+      const subText = addInfants.textContent.substring(0, 5)
+
+      if (addInfants.textContent.length > 8) {
+        addInfants.textContent = subText
+      }
+
+      if (infantCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
       } else {
-        dottedLines.classList.remove("showDottedLines");
-        addPets.classList.add("hidePets");
+        closeBtn.classList.remove("showCloseBtn")
       }
     });
 
@@ -441,7 +477,10 @@ guestsSection.addEventListener("click", () => {
 
       if (savedAdultCount === 0) {
         adultCountNum = 1;
-        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
         adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
@@ -467,14 +506,10 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      if (petCountNum >= 1 && savedInfantCount >= 1) {
-        dottedLines.classList.add("showDottedLines");
-        addPets.classList.add("hidePets");
-      } else if (petCountNum >= 1) {
-        addPets.classList.remove("hidePets");
+      if (petCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
       } else {
-        dottedLines.classList.remove("showDottedLines");
-        addPets.classList.add("hidePets");
+        closeBtn.classList.remove("showCloseBtn")
       }
     });
 
@@ -508,6 +543,11 @@ guestsSection.addEventListener("click", () => {
       }
 
       petCount.textContent = petCountNum;
+      if (petCountNum !== 0) {
+        closeBtn.classList.add("showCloseBtn")
+      } else {
+        closeBtn.classList.remove("showCloseBtn")
+      }
     });
   } else {
     guestPopupContainer.innerHTML = "";
@@ -516,7 +556,6 @@ guestsSection.addEventListener("click", () => {
     searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
 
-    dottedLines.classList.remove("showDottedLines");
     addPets.classList.remove("hidePets");
   }
 });
@@ -528,3 +567,16 @@ window.addEventListener("DOMContentLoaded", (e) => {
   window.sessionStorage.setItem("infantCount", JSON.stringify(0));
   window.sessionStorage.setItem("petCount", JSON.stringify(0));
 });
+
+closeBtn.addEventListener("click", () => {
+  window.sessionStorage.setItem("adultCount", JSON.stringify(0));
+  window.sessionStorage.setItem("childrenCount", JSON.stringify(0));
+  window.sessionStorage.setItem("infantCount", JSON.stringify(0));
+  window.sessionStorage.setItem("petCount", JSON.stringify(0));
+
+  addGuests.textContent = "Add guests"
+  addInfants.textContent = ""
+  addPets.textContent = ""
+
+  closeBtn.classList.remove("showCloseBtn")
+})

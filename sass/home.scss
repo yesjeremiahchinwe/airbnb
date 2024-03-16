@@ -110,7 +110,7 @@ li {
 }
 
 .last-filter-wrapper {
-  flex-basis: 35%;
+  flex-basis: 38%;
   height: 100%;
 
   &:hover {
@@ -144,6 +144,38 @@ li {
   flex-grow: 1;
 }
 
+#closeBtn {
+  display: none;
+
+  &.showCloseBtn {
+    display: flex;
+  }
+  
+  &:hover {
+    background-color: rgba(221, 221, 221, 0.5);
+  }
+}
+
+#addInfants, #addPets {
+  &.darkText, span {
+    color: black;
+    font-weight: 600;
+  }
+}
+
+#addGuests {
+  color: #717171;
+
+  &.defaultColor {
+    color: #717171;
+  }
+  
+  &.darkText, span {
+    color: black;
+    font-weight: 600;
+  }
+}
+
 #addPets {
   display: flex;
   align-items: flex-end;
@@ -151,6 +183,10 @@ li {
 
   &.hidePets {
     display: none;
+  }
+
+  &.darkText {
+    color: black;
   }
 }
 
