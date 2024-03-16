@@ -28,7 +28,7 @@ const subHeaderWrapper = document.querySelector(".sub-header-wrapper");
 const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
 const searchText = document.createElement("span");
-const closeBtn = document.getElementById("closeBtn")
+const closeBtn = document.getElementById("closeBtn");
 const guestPopupContainer = document.getElementById("popUpGuests");
 searchText.textContent = "Search";
 
@@ -36,7 +36,7 @@ let isGuestPopopOpen = false;
 
 if (addGuests.textContent != 1) {
   addGuests.textContent = "Add guest";
-  addGuests.classList.toggle("defaultColor")
+  addGuests.classList.toggle("defaultColor");
 }
 
 guestsSection.addEventListener("click", () => {
@@ -56,9 +56,9 @@ guestsSection.addEventListener("click", () => {
 
     /* -------- Guest Popup ----------- */
 
-    addGuests.classList.add("darkText")
-    addInfants.classList.add("darkText")
-    addPets.classList.add("darkText")
+    addGuests.classList.add("darkText");
+    addInfants.classList.add("darkText");
+    addPets.classList.add("darkText");
     /* ------------ Children Count ----------- */
 
     const childrenCount = document.getElementById("childrenCount");
@@ -106,22 +106,23 @@ guestsSection.addEventListener("click", () => {
       if (savedAdultCount + savedChildrenCount === 16) {
         addGuests.textContent = savedChildrenCount + savedAdultCount + "+";
         childrenCount.textContent = savedChildrenCount;
+        closeBtn.classList.remove("showCloseBtn");
       }
 
       const originText = addGuests.textContent;
       const spanEl = document.createElement("span");
       if (originText == 1) {
-        spanEl.textContent = " guest"
+        spanEl.textContent = " guest";
         addGuests.appendChild(spanEl);
       } else {
-        spanEl.textContent = " guests"
+        spanEl.textContent = " guests";
         addGuests.appendChild(spanEl);
       }
 
       if (childrenCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
@@ -162,9 +163,9 @@ guestsSection.addEventListener("click", () => {
       childrenCount.textContent = childrenCountNum;
 
       if (childrenCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
@@ -205,6 +206,7 @@ guestsSection.addEventListener("click", () => {
         if (savedAdultCount === 16) {
           adultCount.textContent = adultCountNum + "+";
           addGuests.textContent = adultCountNum + "+";
+          closeBtn.classList.add("showCloseBtn");
         }
 
         const originText = addGuests.textContent;
@@ -223,6 +225,7 @@ guestsSection.addEventListener("click", () => {
         if (savedAdultCount + savedChildrenCount === 16) {
           addGuests.textContent = savedChildrenCount + savedAdultCount + "+";
           adultCount.textContent = savedAdultCount;
+          closeBtn.classList.add("showCloseBtn");
         }
 
         const originText = addGuests.textContent;
@@ -239,9 +242,9 @@ guestsSection.addEventListener("click", () => {
 
       /* ------------ Close Button ---------- */
       if (adultCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
@@ -316,9 +319,9 @@ guestsSection.addEventListener("click", () => {
       }
 
       if (adultCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
@@ -337,9 +340,6 @@ guestsSection.addEventListener("click", () => {
       );
       const savedInfantCount = JSON.parse(
         window.sessionStorage.getItem("infantCount")
-      );
-      const savedPetCount = JSON.parse(
-        window.sessionStorage.getItem("petCount")
       );
 
       if (infantCountNum < 5) {
@@ -380,25 +380,22 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      const subText = addInfants.textContent.substring(0, 5) + "..."
+      const subText = addInfants.textContent.substring(0, 5) + "...";
 
       if (addInfants.textContent.length > 8) {
-        addInfants.textContent = subText
+        addInfants.textContent = subText;
       }
 
       if (infantCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
     infantMinusBtn.addEventListener("click", () => {
       const savedInfantCount = JSON.parse(
         window.sessionStorage.getItem("infantCount")
-      );
-      const savedPetCount = JSON.parse(
-        window.sessionStorage.getItem("petCount")
       );
 
       if (savedInfantCount > 0) {
@@ -433,16 +430,16 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      const subText = addInfants.textContent.substring(0, 5)
+      const subText = addInfants.textContent.substring(0, 5);
 
       if (addInfants.textContent.length > 8) {
-        addInfants.textContent = subText
+        addInfants.textContent = subText;
       }
 
       if (infantCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
 
@@ -507,9 +504,15 @@ guestsSection.addEventListener("click", () => {
       }
 
       if (petCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
+      }
+
+      const subText = addInfants.textContent.substring(0, 5) + "...";
+
+      if (addInfants.textContent.length > 8) {
+        addInfants.textContent = subText;
       }
     });
 
@@ -544,9 +547,9 @@ guestsSection.addEventListener("click", () => {
 
       petCount.textContent = petCountNum;
       if (petCountNum !== 0) {
-        closeBtn.classList.add("showCloseBtn")
+        closeBtn.classList.add("showCloseBtn");
       } else {
-        closeBtn.classList.remove("showCloseBtn")
+        closeBtn.classList.remove("showCloseBtn");
       }
     });
   } else {
@@ -557,6 +560,14 @@ guestsSection.addEventListener("click", () => {
     searchContainer.classList.remove("showText");
 
     addPets.classList.remove("hidePets");
+
+    const savedInfantCount = JSON.parse(
+      window.sessionStorage.getItem("infantCount")
+    );
+
+    if (savedInfantCount != 0) {
+      addInfants.textContent = savedInfantCount + " infants";
+    }
   }
 });
 
@@ -568,15 +579,93 @@ window.addEventListener("DOMContentLoaded", (e) => {
   window.sessionStorage.setItem("petCount", JSON.stringify(0));
 });
 
+
 closeBtn.addEventListener("click", () => {
   window.sessionStorage.setItem("adultCount", JSON.stringify(0));
   window.sessionStorage.setItem("childrenCount", JSON.stringify(0));
   window.sessionStorage.setItem("infantCount", JSON.stringify(0));
   window.sessionStorage.setItem("petCount", JSON.stringify(0));
 
-  addGuests.textContent = "Add guests"
-  addInfants.textContent = ""
-  addPets.textContent = ""
+  addInfants.textContent = "";
+  addPets.textContent = "";
+  addGuests.textContent = "Add guests";
+  
+  const savedInfantCount = JSON.parse(
+    window.sessionStorage.getItem("infantCount")
+  );
 
-  closeBtn.classList.remove("showCloseBtn")
+  if (savedInfantCount < 1) {
+    addInfants.textContent = ""
+  }
+
+  closeBtn.classList.remove("showCloseBtn");
+});
+
+
+
+/* ------------ Close All Popups when clicked outside ------------- */
+const mainElement = document.getElementById("mainElement")
+const homeNav = document.getElementById("homeNav")
+
+homeNav.addEventListener("mousedown", (e) => {
+  if (!popUpMenu.contains(e.target)) {
+    popUpMenu.innerHTML = ""
+    isMenuOpen = false
+  }
+
+  if (!guestPopupContainer.contains(e.target)) {
+    guestPopupContainer.innerHTML = "";
+    isGuestPopopOpen = false
+    subHeaderWrapper.classList.remove("grayBg");
+    guestsSection.classList.remove("whiteBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+  }
+
+  
+  const savedInfantCount = JSON.parse(
+    window.sessionStorage.getItem("infantCount")
+  );
+
+  if (savedInfantCount != 0) {
+    addInfants.textContent = savedInfantCount + " infants";
+  }
+
+  addPets.classList.remove("hidePets");
 })
+
+subHeaderWrapper.addEventListener("mousedown", (e) => {
+  if (!popUpMenu.contains(e.target)) {
+    popUpMenu.innerHTML = ""
+    isMenuOpen = false
+  }
+})
+
+
+mainElement.addEventListener("mousedown", (e) => {
+  if (!popUpMenu.contains(e.target)) {
+    popUpMenu.innerHTML = ""
+    isMenuOpen = false
+  }
+
+  if (!guestPopupContainer.contains(e.target)) {
+    guestPopupContainer.innerHTML = "";
+    isGuestPopopOpen = false
+    subHeaderWrapper.classList.remove("grayBg");
+    guestsSection.classList.remove("whiteBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+  }
+
+  
+  const savedInfantCount = JSON.parse(
+    window.sessionStorage.getItem("infantCount")
+  );
+
+  if (savedInfantCount != 0) {
+    addInfants.textContent = savedInfantCount + " infants";
+  }
+
+  addPets.classList.remove("hidePets");
+})
+

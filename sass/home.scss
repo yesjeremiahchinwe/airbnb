@@ -19,12 +19,19 @@ li {
   list-style: none;
 }
 
+
+/* -------------- Menu Popup -------------- */
 .popup {
   display: block;
   position: absolute;
   top: 80%;
   width: 18%;
   right: 3.8%;
+  z-index: 40;
+
+  &.higherIndex {
+    z-index: 2000;
+  }
 }
 
 .popup a:hover {
@@ -123,6 +130,7 @@ li {
     border-radius: 60px;
     height: 97%;
     box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+    flex-basis: 42%;
 
     &:hover {
       background-color: #fff;
@@ -150,14 +158,16 @@ li {
   &.showCloseBtn {
     display: flex;
   }
-  
+
   &:hover {
     background-color: rgba(221, 221, 221, 0.5);
   }
 }
 
-#addInfants, #addPets {
-  &.darkText, span {
+#addInfants,
+#addPets {
+  &.darkText,
+  span {
     color: black;
     font-weight: 600;
   }
@@ -169,8 +179,9 @@ li {
   &.defaultColor {
     color: #717171;
   }
-  
-  &.darkText, span {
+
+  &.darkText,
+  span {
     color: black;
     font-weight: 600;
   }
@@ -179,7 +190,7 @@ li {
 #addPets {
   display: flex;
   align-items: flex-end;
-  gap: 0.20rem;
+  gap: 0.2rem;
 
   &.hidePets {
     display: none;
@@ -232,7 +243,7 @@ li {
   transition: all 0.1s ease;
 
   &.showText {
-    background-image: linear-gradient(90deg, #ff385c, #BD1E59);
+    background-image: linear-gradient(90deg, #ff385c, #bd1e59);
     width: fit-content;
     padding: 0.5rem 1.25rem;
     display: flex;
@@ -254,7 +265,7 @@ li {
   top: 100%;
   margin-top: 0.75rem;
   padding: 1rem 2.5rem;
-  width: 435px;
+  width: 410px;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -265,7 +276,15 @@ li {
     &:last-of-type {
       border-bottom: 0 transparent;
     }
-  }  
+  }
+}
+
+#popUpGuests {
+  z-index: 300;
+
+  &.higherIndex {
+    z-index: 3000;
+  }
 }
 
 /* ----------- Modal ------------ */
