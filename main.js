@@ -25,7 +25,7 @@ menuBtn.addEventListener("click", () => {
 const addGuests = document.getElementById("addGuests");
 const addInfants = document.getElementById("addInfants");
 const addPets = document.getElementById("addPets");
-const dottedLines = document.getElementById("dottedLines")
+const dottedLines = document.getElementById("dottedLines");
 const subHeaderWrapper = document.querySelector(".sub-header-wrapper");
 const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
@@ -61,24 +61,44 @@ guestsSection.addEventListener("click", () => {
     const childrenPlusBtn = document.getElementById("childrenPlusBtn");
     const childrenMinusBtn = document.getElementById("childrenMinusBtn");
 
-    childrenCount.textContent = childrenCountNum;
+    childrenCount.textContent = JSON.parse(
+      window.sessionStorage.getItem("childrenCount")
+    );
 
     childrenPlusBtn.addEventListener("click", () => {
-      if ((adultCountNum < 15) & (childrenCountNum + adultCountNum !== 16)) {
-        childrenCountNum++;
+      const savedChildrenCount = JSON.parse(
+        window.sessionStorage.getItem("childrenCount")
+      );
+      const savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
+
+      if (savedAdultCount < 15 && savedChildrenCount + savedAdultCount !== 16) {
+        window.sessionStorage.setItem(
+          "childrenCount",
+          JSON.stringify(childrenCountNum)
+        );
+        childrenCountNum = savedChildrenCount + 1;
+        window.sessionStorage.setItem(
+          "childrenCount",
+          JSON.stringify(childrenCountNum)
+        );
       }
+
       childrenCount.textContent = childrenCountNum;
 
-      if (adultCountNum === 0) {
+      if (savedAdultCount === 0) {
         adultCountNum = 1;
+        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
         adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
 
-      addGuests.textContent = childrenCountNum + adultCountNum;
+      addGuests.textContent = childrenCountNum + savedAdultCount;
 
-      if (adultCountNum + childrenCountNum === 16) {
-        addGuests.textContent = childrenCountNum + adultCountNum + "+";
+      if (savedAdultCount + savedChildrenCount === 16) {
+        addGuests.textContent = savedChildrenCount + savedAdultCount + "+";
+        childrenCount.textContent = savedChildrenCount;
       }
 
       const originText = addGuests.textContent;
@@ -93,10 +113,25 @@ guestsSection.addEventListener("click", () => {
     });
 
     childrenMinusBtn.addEventListener("click", () => {
-      if (childrenCountNum > 0) {
-        childrenCountNum--;
+      const savedChildrenCount = JSON.parse(
+        window.sessionStorage.getItem("childrenCount")
+      );
+      const savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
 
-        addGuests.textContent = childrenCountNum + adultCountNum;
+      if (savedChildrenCount > 0) {
+        window.sessionStorage.setItem(
+          "childrenCount",
+          JSON.stringify(childrenCountNum)
+        );
+        childrenCountNum = savedChildrenCount - 1;
+        window.sessionStorage.setItem(
+          "childrenCount",
+          JSON.stringify(childrenCountNum)
+        );
+
+        addGuests.textContent = childrenCountNum + savedAdultCount;
         const originText = addGuests.textContent;
         const spanEl = document.createElement("span");
 
@@ -114,25 +149,41 @@ guestsSection.addEventListener("click", () => {
       childrenCount.textContent = childrenCountNum;
     });
 
-
     /* -------- Adults Count --------- */
     const adultCount = document.getElementById("adultCount");
     const adultPlusBtn = document.getElementById("adultsPlusBtn");
     const adultMinusBtn = document.getElementById("adultsMinusBtn");
-    adultCount.textContent = window.sessionStorage.getItem("adultCount");;
+
+    adultCount.textContent = JSON.parse(
+      window.sessionStorage.getItem("adultCount")
+    );
 
     adultPlusBtn.addEventListener("click", () => {
-      if ((adultCountNum < 16) & (childrenCountNum + adultCountNum !== 16)) {
-        adultCountNum++;
+      const savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
+      const savedChildrenCount = JSON.parse(
+        window.sessionStorage.getItem("childrenCount")
+      );
+
+      if (adultCountNum < 16 && savedChildrenCount + adultCountNum !== 16) {
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
+        adultCountNum = savedAdultCount + 1;
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
       }
 
-      window.sessionStorage.setItem("adultCount", adultCountNum)
-      adultCount.textContent = window.sessionStorage.getItem("adultCount");
+      adultCount.textContent = adultCountNum;
 
-      if (childrenCountNum === 0) {
+      if (savedChildrenCount === 0) {
         addGuests.textContent = adultCountNum;
 
-        if (adultCountNum === 16) {
+        if (savedAdultCount === 16) {
           adultCount.textContent = adultCountNum + "+";
           addGuests.textContent = adultCountNum + "+";
         }
@@ -148,10 +199,11 @@ guestsSection.addEventListener("click", () => {
           addGuests.appendChild(spanEl);
         }
       } else {
-        addGuests.textContent = childrenCountNum + adultCountNum;
+        addGuests.textContent = adultCountNum + savedChildrenCount;
 
-        if (adultCountNum + childrenCountNum === 16) {
-          addGuests.textContent = childrenCountNum + adultCountNum + "+";
+        if (savedAdultCount + savedChildrenCount === 16) {
+          addGuests.textContent = savedChildrenCount + savedAdultCount + "+";
+          adultCount.textContent = savedAdultCount;
         }
 
         const originText = addGuests.textContent;
@@ -168,47 +220,66 @@ guestsSection.addEventListener("click", () => {
     });
 
     adultMinusBtn.addEventListener("click", () => {
-      if (adultCountNum > 0) {
-        adultCountNum--;
-        adultCount.textContent = adultCountNum;
+      const savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
+      const savedChildrenCount = JSON.parse(
+        window.sessionStorage.getItem("childrenCount")
+      );
+      const savedInfantCount = JSON.parse(
+        window.sessionStorage.getItem("infantCount")
+      );
 
-        if (
-          (childrenCountNum != 0 && adultCountNum < 2) ||
-          (infantCountNum != 0 && adultCountNum < 2) ||
-          (petCountNum != 0 && adultCountNum < 2)
-        ) {
-          adultCountNum = 1;
-          adultCount.textContent = 1;
-        }
+      if (savedAdultCount > 0) {
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
+        adultCountNum = savedAdultCount - 1;
+        window.sessionStorage.setItem(
+          "adultCount",
+          JSON.stringify(adultCountNum)
+        );
+      }
 
-        if (childrenCountNum !== 0) {
-          addGuests.textContent = adultCountNum + childrenCountNum;
-          const originText = addGuests.textContent;
-          const spanEl = document.createElement("span");
+      adultCount.textContent = adultCountNum;
 
-          if (originText == 1) {
-            spanEl.textContent = " guest";
-            addGuests.appendChild(spanEl);
-          } else if (originText == 0) {
-            addGuests.textContent = "Add guest";
-          } else {
-            spanEl.textContent = " guests";
-            addGuests.appendChild(spanEl);
-          }
+      if (
+        (savedChildrenCount != 0 && savedAdultCount < 2) ||
+        (savedInfantCount != 0 && savedAdultCount < 2) ||
+        (savedPetCount != 0 && savedAdultCount < 2)
+      ) {
+        adultCountNum = 1;
+        adultCount.textContent = 1;
+      }
+
+      if (savedChildrenCount !== 0) {
+        addGuests.textContent = adultCountNum + savedChildrenCount;
+        const originText = addGuests.textContent;
+        const spanEl = document.createElement("span");
+
+        if (originText == 1) {
+          spanEl.textContent = " guest";
+          addGuests.appendChild(spanEl);
+        } else if (originText == 0) {
+          addGuests.textContent = "Add guest";
         } else {
-          addGuests.textContent = adultCountNum;
-          const originText = addGuests.textContent;
-          const spanEl = document.createElement("span");
+          spanEl.textContent = " guests";
+          addGuests.appendChild(spanEl);
+        }
+      } else {
+        addGuests.textContent = adultCountNum;
+        const originText = addGuests.textContent;
+        const spanEl = document.createElement("span");
 
-          if (originText == 1) {
-            spanEl.textContent = " guest";
-            addGuests.appendChild(spanEl);
-          } else if (originText == 0) {
-            addGuests.textContent = "Add guest";
-          } else {
-            spanEl.textContent = " guests";
-            addGuests.appendChild(spanEl);
-          }
+        if (originText == 1) {
+          spanEl.textContent = " guest";
+          addGuests.appendChild(spanEl);
+        } else if (originText == 0) {
+          addGuests.textContent = "Add guest";
+        } else {
+          spanEl.textContent = " guests";
+          addGuests.appendChild(spanEl);
         }
       }
     });
@@ -217,16 +288,39 @@ guestsSection.addEventListener("click", () => {
     const infantCount = document.getElementById("infantCount");
     const infantPlusBtn = document.getElementById("infantsPlusBtn");
     const infantMinusBtn = document.getElementById("infantsMinusBtn");
-    infantCount.textContent = infantCountNum;
+
+    infantCount.textContent = JSON.parse(
+      window.sessionStorage.getItem("infantCount")
+    );
 
     infantPlusBtn.addEventListener("click", () => {
+      const savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
+      const savedInfantCount = JSON.parse(
+        window.sessionStorage.getItem("infantCount")
+      );
+      const savedPetCount = JSON.parse(
+        window.sessionStorage.getItem("petCount")
+      );
+
       if (infantCountNum < 5) {
-        infantCountNum++;
+        window.sessionStorage.setItem(
+          "infantCount",
+          JSON.stringify(infantCountNum)
+        );
+        infantCountNum = savedInfantCount + 1;
+        window.sessionStorage.setItem(
+          "infantCount",
+          JSON.stringify(infantCountNum)
+        );
       }
+
       infantCount.textContent = infantCountNum;
 
-      if (adultCountNum === 0) {
+      if (savedAdultCount === 0) {
         adultCountNum = 1;
+        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
         adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
@@ -251,49 +345,103 @@ guestsSection.addEventListener("click", () => {
           addInfants.appendChild(infantSpanEl);
         }
       }
-    });
 
-    infantMinusBtn.addEventListener("click", () => {
-      if (infantCountNum > 0) {
-        infantCountNum--;
-
-        if (infantCountNum < 1) {
-          addInfants.textContent = "";
-          infantCount.textContent = infantCountNum;
-        } else {
-          infantCount.textContent = infantCountNum;
-          addInfants.textContent = infantCountNum;
-          const originInfantText = addInfants.textContent;
-          const infantSpanEl = document.createElement("span");
-
-          if (originInfantText == 1) {
-            infantSpanEl.textContent = " infant";
-            addInfants.appendChild(infantSpanEl);
-          } else {
-            infantSpanEl.textContent = " infants";
-            addInfants.appendChild(infantSpanEl);
-          }
-        }
+      
+      if (savedPetCount >= 1 && infantCountNum >= 1) {
+        dottedLines.classList.add("showDottedLines");
+        addPets.classList.add("hidePets");
+      } else if (savedPetCount >= 1) {
+        addPets.classList.remove("hidePets");
+      } else {
+        dottedLines.classList.remove("showDottedLines");
+        addPets.classList.add("hidePets");
       }
     });
 
+    infantMinusBtn.addEventListener("click", () => {
+      const savedInfantCount = JSON.parse(
+        window.sessionStorage.getItem("infantCount")
+      );
+      const savedPetCount = JSON.parse(
+        window.sessionStorage.getItem("petCount")
+      );
+
+      if (savedInfantCount > 0) {
+        window.sessionStorage.setItem(
+          "infantCount",
+          JSON.stringify(infantCountNum)
+        );
+        infantCountNum = savedInfantCount - 1;
+        window.sessionStorage.setItem(
+          "infantCount",
+          JSON.stringify(infantCountNum)
+        );
+      }
+
+      infantCount.textContent = infantCountNum;
+
+      if (infantCountNum < 1) {
+        addInfants.textContent = "";
+        infantCount.textContent = infantCountNum;
+      } else {
+        infantCount.textContent = infantCountNum;
+        addInfants.textContent = infantCountNum;
+        const originInfantText = addInfants.textContent;
+        const infantSpanEl = document.createElement("span");
+
+        if (originInfantText == 1) {
+          infantSpanEl.textContent = " infant";
+          addInfants.appendChild(infantSpanEl);
+        } else {
+          infantSpanEl.textContent = " infants";
+          addInfants.appendChild(infantSpanEl);
+        }
+      }
+
+      if (savedPetCount >= 1 && infantCountNum >= 1) {
+        dottedLines.classList.add("showDottedLines");
+        addPets.classList.add("hidePets");
+      } else if (savedPetCount >= 1 || infantCountNum === 0) {
+        addPets.classList.remove("hidePets");
+        dottedLines.classList.remove("showDottedLines");
+      } else {
+        dottedLines.classList.remove("showDottedLines");
+        addPets.classList.add("hidePets");
+      }
+    });
 
     /* ------------ Pets Count ---------- */
     const petCount = document.getElementById("petCount");
     const petPlusBtn = document.getElementById("petsPlusBtn");
     const petMinusBtn = document.getElementById("petsMinusBtn");
-    petCount.textContent = petCountNum;
+    petCount.textContent = JSON.parse(
+      window.sessionStorage.getItem("petCount")
+    );
 
     addPets.classList.add("hidePets");
 
     petPlusBtn.addEventListener("click", () => {
+      const savedPetCount = JSON.parse(
+        window.sessionStorage.getItem("petCount")
+      );
+      let savedAdultCount = JSON.parse(
+        window.sessionStorage.getItem("adultCount")
+      );
+      const savedInfantCount = JSON.parse(
+        window.sessionStorage.getItem("infantCount")
+      );
+
       if (petCountNum < 5) {
-        petCountNum++;
+        window.sessionStorage.setItem("petCount", JSON.stringify(petCountNum));
+        petCountNum = savedPetCount + 1;
+        window.sessionStorage.setItem("petCount", JSON.stringify(petCountNum));
       }
+
       petCount.textContent = petCountNum;
 
-      if (adultCountNum === 0) {
+      if (savedAdultCount === 0) {
         adultCountNum = 1;
+        window.sessionStorage.setItem("adultCount", JSON.stringify(adultCountNum));
         adultCount.textContent = adultCountNum;
         addGuests.textContent = childrenCountNum + adultCountNum;
       }
@@ -319,14 +467,26 @@ guestsSection.addEventListener("click", () => {
         }
       }
 
-      if (petCount.textContent.length != 0) {
-        dottedLines.classList.add("showDottedLines")
+      if (petCountNum >= 1 && savedInfantCount >= 1) {
+        dottedLines.classList.add("showDottedLines");
+        addPets.classList.add("hidePets");
+      } else if (petCountNum >= 1) {
+        addPets.classList.remove("hidePets");
+      } else {
+        dottedLines.classList.remove("showDottedLines");
+        addPets.classList.add("hidePets");
       }
     });
 
     petMinusBtn.addEventListener("click", () => {
+      const savedPetCount = JSON.parse(
+        window.sessionStorage.getItem("petCount")
+      );
+
       if (petCountNum > 0) {
-        petCountNum--;
+        window.sessionStorage.setItem("petCount", JSON.stringify(petCountNum));
+        petCountNum = savedPetCount - 1;
+        window.sessionStorage.setItem("petCount", JSON.stringify(petCountNum));
 
         if (petCountNum < 1) {
           addPets.textContent = "";
@@ -356,9 +516,15 @@ guestsSection.addEventListener("click", () => {
     searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
 
- /*    const adultCount = document.getElementById("adultCount");
-    console.log(adultCount.textContent) */
-    dottedLines.classList.remove("showDottedLines")
+    dottedLines.classList.remove("showDottedLines");
     addPets.classList.remove("hidePets");
   }
+});
+
+/* ------------ Reset Selected guests on Page Load ---------- */
+window.addEventListener("DOMContentLoaded", (e) => {
+  window.sessionStorage.setItem("adultCount", JSON.stringify(0));
+  window.sessionStorage.setItem("childrenCount", JSON.stringify(0));
+  window.sessionStorage.setItem("infantCount", JSON.stringify(0));
+  window.sessionStorage.setItem("petCount", JSON.stringify(0));
 });
