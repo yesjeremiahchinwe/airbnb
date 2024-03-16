@@ -24,6 +24,7 @@ menuBtn.addEventListener("click", () => {
 /* ---------- Sub header ------------ */
 const addGuests = document.getElementById("addGuests");
 const addInfants = document.getElementById("addInfants");
+const addPets = document.getElementById("addPets");
 const subHeaderWrapper = document.querySelector(".sub-header-wrapper");
 const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
@@ -33,8 +34,7 @@ searchText.textContent = "Search";
 
 let isGuestPopopOpen = false;
 
-let allSelectedGuest = [];
-if (!allSelectedGuest.length) {
+if (addGuests.textContent != 1) {
   addGuests.textContent = "Add guest";
 }
 
@@ -58,7 +58,9 @@ guestsSection.addEventListener("click", () => {
     childrenCount.textContent = childrenCountNum;
 
     childrenPlusBtn.addEventListener("click", () => {
-      childrenCountNum++;
+      if ((adultCountNum < 15) & (childrenCountNum + adultCountNum !== 16)) {
+        childrenCountNum++;
+      }
       childrenCount.textContent = childrenCountNum;
 
       if (adultCountNum === 0) {
@@ -69,13 +71,17 @@ guestsSection.addEventListener("click", () => {
 
       addGuests.textContent = childrenCountNum + adultCountNum;
 
+      if (adultCountNum + childrenCountNum === 16) {
+        addGuests.textContent = childrenCountNum + adultCountNum + "+";
+      }
+
       const originText = addGuests.textContent;
       const spanEl = document.createElement("span");
       if (originText == 1) {
-        spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
+        spanEl.textContent = " guest"
         addGuests.appendChild(spanEl);
       } else {
-        spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
+        spanEl.textContent = " guests"
         addGuests.appendChild(spanEl);
       }
     });
@@ -89,12 +95,12 @@ guestsSection.addEventListener("click", () => {
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guest"
           addGuests.appendChild(spanEl);
         } else if (originText == 0) {
           addGuests.textContent = "Add guest";
         } else {
-          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guests"
           addGuests.appendChild(spanEl);
         }
       }
@@ -109,31 +115,45 @@ guestsSection.addEventListener("click", () => {
     adultCount.textContent = adultCountNum;
 
     adultPlusBtn.addEventListener("click", () => {
-      adultCountNum++;
+      if ((adultCountNum < 16) & (childrenCountNum + adultCountNum !== 16)) {
+        adultCountNum++;
+      }
+
       adultCount.textContent = adultCountNum;
 
       if (childrenCountNum === 0) {
         addGuests.textContent = adultCountNum;
+
+        if (adultCountNum === 16) {
+          adultCount.textContent = adultCountNum + "+";
+          addGuests.textContent = adultCountNum + "+";
+        }
+
         const originText = addGuests.textContent;
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guest"
           addGuests.appendChild(spanEl);
         } else {
-          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guests"
           addGuests.appendChild(spanEl);
         }
       } else {
         addGuests.textContent = childrenCountNum + adultCountNum;
+
+        if (adultCountNum + childrenCountNum === 16) {
+          addGuests.textContent = childrenCountNum + adultCountNum + "+";
+        }
+
         const originText = addGuests.textContent;
         const spanEl = document.createElement("span");
 
         if (originText == 1) {
-          spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guest"
           addGuests.appendChild(spanEl);
         } else {
-          spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
+          spanEl.textContent = " guests"
           addGuests.appendChild(spanEl);
         }
       }
@@ -144,7 +164,11 @@ guestsSection.addEventListener("click", () => {
         adultCountNum--;
         adultCount.textContent = adultCountNum;
 
-        if (childrenCountNum != 0 && adultCountNum < 2) {
+        if (
+          (childrenCountNum != 0 && adultCountNum < 2) ||
+          (infantCountNum != 0 && adultCountNum < 2) ||
+          (petCountNum != 0 && adultCountNum < 2)
+        ) {
           adultCountNum = 1;
           adultCount.textContent = 1;
         }
@@ -155,12 +179,13 @@ guestsSection.addEventListener("click", () => {
           const spanEl = document.createElement("span");
 
           if (originText == 1) {
-            spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `
+            spanEl.textContent = " guest"
             addGuests.appendChild(spanEl);
           } else if (originText == 0) {
             addGuests.textContent = "Add guest";
           } else {
-            spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `
+            spanEl.textContent =
+              " guests"
             addGuests.appendChild(spanEl);
           }
         } else {
@@ -169,12 +194,12 @@ guestsSection.addEventListener("click", () => {
           const spanEl = document.createElement("span");
 
           if (originText == 1) {
-            spanEl.textContent = " guest" + `${infantCountNum > 0 ? "," : ""} `;
+            spanEl.textContent = " guest"
             addGuests.appendChild(spanEl);
           } else if (originText == 0) {
             addGuests.textContent = "Add guest";
           } else {
-            spanEl.textContent = " guests" + `${infantCountNum > 0 ? "," : ""} `;
+            spanEl.textContent = " guests"
             addGuests.appendChild(spanEl);
           }
         }
@@ -188,9 +213,10 @@ guestsSection.addEventListener("click", () => {
     let infantCountNum = 0;
     infantCount.textContent = infantCountNum;
 
-
     infantPlusBtn.addEventListener("click", () => {
-      infantCountNum++;
+      if (infantCountNum < 5) {
+        infantCountNum++;
+      }
       infantCount.textContent = infantCountNum;
 
       if (adultCountNum === 0) {
@@ -202,7 +228,7 @@ guestsSection.addEventListener("click", () => {
       const originText = addGuests.textContent;
       const spanEl = document.createElement("span");
       if (originText == 1) {
-        spanEl.textContent = " guest, "
+        spanEl.textContent = " guest";
         addGuests.appendChild(spanEl);
       }
 
@@ -212,10 +238,10 @@ guestsSection.addEventListener("click", () => {
         const infantSpanEl = document.createElement("span");
 
         if (originInfantText == 1) {
-          infantSpanEl.textContent = " infant, ";
+          infantSpanEl.textContent = " infant";
           addInfants.appendChild(infantSpanEl);
         } else {
-          infantSpanEl.textContent = " infants, ";
+          infantSpanEl.textContent = " infants";
           addInfants.appendChild(infantSpanEl);
         }
       }
@@ -235,10 +261,10 @@ guestsSection.addEventListener("click", () => {
           const infantSpanEl = document.createElement("span");
 
           if (originInfantText == 1) {
-            infantSpanEl.textContent = " infant, ";
+            infantSpanEl.textContent = " infant";
             addInfants.appendChild(infantSpanEl);
           } else {
-            infantSpanEl.textContent = " infants, ";
+            infantSpanEl.textContent = " infants";
             addInfants.appendChild(infantSpanEl);
           }
         }
@@ -249,21 +275,64 @@ guestsSection.addEventListener("click", () => {
     const petCount = document.getElementById("petCount");
     const petPlusBtn = document.getElementById("petsPlusBtn");
     const petMinusBtn = document.getElementById("petsMinusBtn");
-
     let petCountNum = 0;
-
     petCount.textContent = petCountNum;
 
     petPlusBtn.addEventListener("click", () => {
-      petCountNum++;
+      if (petCountNum < 5) {
+        petCountNum++;
+      }
       petCount.textContent = petCountNum;
 
-      //   addGuests.textContent = numAdult.length + numPet.length;
+      if (adultCountNum === 0) {
+        adultCountNum = 1;
+        adultCount.textContent = adultCountNum;
+        addGuests.textContent = childrenCountNum + adultCountNum;
+      }
+
+      const originText = addGuests.textContent;
+      const spanEl = document.createElement("span");
+      if (originText == 1) {
+        spanEl.textContent = " guest";
+        addGuests.appendChild(spanEl);
+      }
+
+      if (petCountNum !== 0) {
+        addPets.textContent = petCountNum;
+        const originText = addPets.textContent;
+        const infantSpanEl = document.createElement("span");
+
+        if (originText == 1) {
+          infantSpanEl.textContent = " pet";
+          addPets.appendChild(infantSpanEl);
+        } else {
+          infantSpanEl.textContent = " pets";
+          addPets.appendChild(infantSpanEl);
+        }
+      }
     });
 
     petMinusBtn.addEventListener("click", () => {
       if (petCountNum > 0) {
         petCountNum--;
+
+        if (petCountNum < 1) {
+          addPets.textContent = "";
+          petCount.textContent = petCountNum;
+        } else {
+          petCount.textContent = petCountNum;
+          addPets.textContent = petCountNum;
+          const originInfantText = addPets.textContent;
+          const infantSpanEl = document.createElement("span");
+
+          if (originInfantText == 1) {
+            infantSpanEl.textContent = " pet";
+            addPets.appendChild(infantSpanEl);
+          } else {
+            infantSpanEl.textContent = " pets";
+            addPets.appendChild(infantSpanEl);
+          }
+        }
       }
 
       petCount.textContent = petCountNum;
@@ -277,7 +346,3 @@ guestsSection.addEventListener("click", () => {
   }
 });
 
-/* -------- Guest Popop ---------- */
-
-const numChildren = allSelectedGuest.filter((val) => val === "children");
-const numAdult = allSelectedGuest.filter((val) => val === "adult");

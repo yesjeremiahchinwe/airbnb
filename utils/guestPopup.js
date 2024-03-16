@@ -9,14 +9,14 @@ function guestPop() {
 
 
   <div class="d-flex align-items-center gap-3">
-    <button id='adultsMinusBtn' class="btn border-1 border rounded-pill" role="button">
-      <i class="bi bi-dash fs-4"></i>
+    <button id='adultsMinusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+      <i class="bi bi-dash fs-5"></i>
     </button>
 
     <div id='adultCount'></div>
 
-    <button id='adultsPlusBtn' class="btn border-1 border rounded-pill" role="button">
-      <i class="bi bi-plus fs-4"></i>
+    <button id='adultsPlusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+      <i class="bi bi-plus fs-5"></i>
     </button>
   </div>
 </div>
@@ -29,14 +29,14 @@ function guestPop() {
     </div>
 
     <div class="d-flex align-items-center gap-3">
-      <button id='childrenMinusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-dash fs-4"></i>
+      <button id='childrenMinusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-dash fs-5"></i>
       </button>
 
       <div id='childrenCount'></div>
 
-      <button id='childrenPlusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-plus fs-4"></i>
+      <button id='childrenPlusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-plus fs-5"></i>
       </button>
     </div>
   </div>
@@ -48,14 +48,14 @@ function guestPop() {
     </div>
 
     <div class="d-flex align-items-center gap-3">
-      <button id='infantsMinusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-dash fs-4"></i>
+      <button id='infantsMinusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-dash fs-5"></i>
       </button>
 
       <div id='infantCount'></div>
 
-      <button id='infantsPlusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-plus fs-4"></i>
+      <button id='infantsPlusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-plus fs-5"></i>
       </button>
     </div>
   </div>
@@ -67,14 +67,14 @@ function guestPop() {
     </div>
 
     <div class="d-flex align-items-center gap-3">
-      <button id='petsMinusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-dash fs-4"></i>
+      <button id='petsMinusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-dash fs-5"></i>
       </button>
 
       <div id='petCount'></div>
 
-      <button id='petsPlusBtn' class="btn border-1 border rounded-pill" role="button">
-        <i class="bi bi-plus fs-4"></i>
+      <button id='petsPlusBtn' class="btn border-1 border btn-sm rounded-circle" role="button">
+        <i class="bi bi-plus fs-5"></i>
       </button>
     </div>
   </div></div>`;
