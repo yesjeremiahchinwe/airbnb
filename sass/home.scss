@@ -144,6 +144,25 @@ li {
   flex-grow: 1;
 }
 
+#addPets {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.20rem;
+
+  &.hidePets {
+    display: none;
+  }
+}
+
+#dottedLines {
+  display: none;
+
+  &.showDottedLines {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
 .filter:first-of-type {
   border-left: 0px solid transparent;
 }
