@@ -19,7 +19,6 @@ li {
   list-style: none;
 }
 
-
 /* -------------- Menu Popup -------------- */
 .popup {
   display: block;
@@ -96,18 +95,25 @@ li {
 
 .filter {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   font-size: 0.9rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   height: 100%;
   width: fit-content;
   cursor: pointer;
-  padding: 0 1.85rem;
-  flex: 1 1 18%;
+  padding: 0 1.25rem;
+  flex: 1 1 20%;
+
+  div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
   &:first-of-type {
     flex-basis: 33%;
+    padding: 0 1.75rem;
   }
 
   &:hover {
@@ -115,7 +121,6 @@ li {
     border-radius: 60px;
   }
 
-  
   &.whiteBg {
     background-color: #fff;
     border-radius: 60px;
@@ -271,6 +276,19 @@ li {
   }
 }
 
+
+#closeCheckOutBtn, #closeCheckInBtn {
+  display: none;
+  background-color: transparent;
+
+  &:hover {
+      background-color: rgba(221, 221, 221, 0.3);
+  }
+
+  &.showCloseCheckOutBtn {
+    display: flex;
+  }
+}
 
 /* --------------- Guest Popup ------------- */
 .popup-guests {

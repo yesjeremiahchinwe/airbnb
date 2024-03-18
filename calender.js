@@ -26,12 +26,11 @@ const options = {
 
       const selectedDate =
         JSON.parse(window.sessionStorage.getItem("selectedDate")) || [];
-      console.log(selectedDate);
 
       const selectCheckInDate = selectedDate?.shift();
 
       const getCheckInMonth = selectCheckInDate?.slice(5, 7);
-      const getCheckInDay = selectCheckInDate?.slice(8);
+      const getCheckInDay = selectCheckInDate?.slice(8) || "";
       const checkInMonth =
         getCheckInMonth == "03"
           ? "Mar"
@@ -53,12 +52,14 @@ const options = {
           ? "Nov"
           : getCheckInMonth == "12"
           ? "Dec"
-          : "No";
+          : "Add dates";
 
       const displayCheckInDate = document.getElementById("displayCheckInDate");
       const displayCheckOutDate = document.getElementById(
         "displayCheckOutDate"
       );
+      const closeCheckOutBtn = document.getElementById("closeCheckOutBtn")
+      const closeCheckInBtn = document.getElementById("closeCheckInBtn")
 
       const checkInText = displayCheckInDate.textContent;
 
@@ -67,24 +68,46 @@ const options = {
       if (checkInText && checkInDate.classList.contains("whiteBg")) {
         displayCheckInDate.textContent = checkInMonth + " " + getCheckInDay;
         displayCheckInDate.classList.add("boldText");
+        closeCheckInBtn.classList.add("showCloseCheckOutBtn")
+        closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
       } 
 
-      if (checkOutText === "Add dates" && checkInText && checkInDate.classList.contains("whiteBg")) {
+      if (checkOutText === "Add dates" && checkInText !== "Add dates" && checkInDate.classList.contains("whiteBg")) {
         checkInDate.classList.remove("whiteBg");
         checkOutDate.classList.add("whiteBg");
+        closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
         return
       }
       
       if (checkOutText && checkOutDate.classList.contains("whiteBg")) {
         displayCheckOutDate.textContent = checkInMonth + " " + getCheckInDay;
         displayCheckOutDate.classList.add("boldText");
+        closeCheckOutBtn.classList.add("showCloseCheckOutBtn")
+        closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
       }
 
-      if (checkInText == "Add dates" && checkOutText && checkOutDate.classList.contains("whiteBg")) {
+      if (checkInText == "Add dates" && checkOutText !== "Add dates" && checkOutDate.classList.contains("whiteBg")) {
         checkOutDate.classList.remove("whiteBg");
         checkInDate.classList.add("whiteBg");
+        closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
         return
       }
+
+      closeCheckOutBtn.addEventListener("click", () => {
+        window.sessionStorage.setItem("selectedDate", JSON.stringify(""));
+        displayCheckOutDate.textContent = "Add dates"
+        displayCheckInDate.textContent = "Add dates"
+        closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
+        closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
+      })
+
+      closeCheckInBtn.addEventListener("click", () => {
+        window.sessionStorage.setItem("selectedDate", JSON.stringify(""));
+        displayCheckInDate.textContent = "Add dates"
+        displayCheckOutDate.textContent = "Add dates"
+        closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
+        closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
+      })
     },
   },
 };
