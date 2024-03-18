@@ -915,6 +915,18 @@ homeNav.addEventListener("mousedown", (e) => {
     isDestinationPopupOpen = false
   }
 
+  
+  if (!calender.contains(e.target)) {
+    checkInDate.classList.remove("whiteBg")
+    checkOutDate.classList.remove("whiteBg")
+    subHeaderWrapper.classList.remove("grayBg");
+    checkOutDate.classList.remove("whiteBg");
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
+    isCheckInDate = true
+    isCheckOutDate = true
+  }
+
   if (!guestPopupContainer.contains(e.target)) {
     guestPopupContainer.innerHTML = "";
     isGuestPopopOpen = false;
@@ -958,10 +970,14 @@ mainElement.addEventListener("mousedown", (e) => {
   }
 
   if (!calender.contains(e.target)) {
+    checkInDate.classList.remove("whiteBg")
+    checkOutDate.classList.remove("whiteBg")
     subHeaderWrapper.classList.remove("grayBg");
     checkOutDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
+    isCheckInDate = !isCheckInDate
+    isCheckOutDate = !isCheckOutDate
   }
 
   if (!guestPopupContainer.contains(e.target)) {

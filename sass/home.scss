@@ -64,7 +64,7 @@ li {
   align-items: center;
   justify-content: center;
   width: 85%;
-  max-width: 900px;
+  max-width: 950px;
   height: 70px;
   z-index: 30;
   background-color: #fff;
@@ -314,7 +314,6 @@ li {
   max-width: 410px;
   background-color: #fff;
   border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &.showDestinationPopup {
     display: block;
@@ -344,6 +343,7 @@ li {
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
 
   .option {
     border-bottom: 1px solid rgba(221, 221, 221, 0.8);
