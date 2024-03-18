@@ -103,7 +103,7 @@ li {
   width: fit-content;
   cursor: pointer;
   padding: 0 1.25rem;
-  flex: 1 1 20%;
+  flex: 1 1 21%;
 
   div {
     flex-direction: column;
@@ -134,7 +134,7 @@ li {
 }
 
 .last-filter-wrapper {
-  flex-basis: 38%;
+  flex-basis: 41%;
   height: 100%;
 
   &:hover {
@@ -246,6 +246,13 @@ li {
 .last-filter span {
   color: #717171;
   margin-top: -0.5rem;
+
+  &.boldText {
+    color: black;
+    font-weight: 700;
+    font-size: 0.90rem;
+    margin-top: -0.25;
+  }
 }
 
 .search-icon {
@@ -259,6 +266,10 @@ li {
   cursor: pointer;
   transition: all 0.1s ease;
 
+  span {
+    display: none;
+  }
+
   &.showText {
     background-image: linear-gradient(90deg, #ff385c, #bd1e59);
     width: fit-content;
@@ -270,23 +281,54 @@ li {
     color: #fff;
 
     span {
+      display: flex;
       font-weight: 600;
       font-size: 1rem;
     }
   }
 }
 
-
-#closeCheckOutBtn, #closeCheckInBtn {
+#closeCheckOutBtn,
+#closeCheckInBtn,
+#closeDesBtn {
   display: none;
   background-color: transparent;
 
   &:hover {
-      background-color: rgba(221, 221, 221, 0.3);
+    background-color: rgba(221, 221, 221, 0.3);
   }
 
   &.showCloseCheckOutBtn {
     display: flex;
+  }
+}
+
+#destinationPopup {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.75rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 410px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &.showDestinationPopup {
+    display: block;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
+
+  .country {
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(221, 221, 221, 0.5);
+    }
   }
 }
 
@@ -297,7 +339,8 @@ li {
   top: 100%;
   margin-top: 0.75rem;
   padding: 1rem 2.5rem;
-  width: 410px;
+  width: 100%;
+  max-width: 410px;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

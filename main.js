@@ -22,10 +22,13 @@ menuBtn.addEventListener("click", () => {
 });
 
 /* ---------- Sub header ------------ */
+
+const searchDestination = document.getElementById("searchDestination");
+const destinationPopup = document.getElementById("destinationPopup");
+
 export const checkInDate = document.getElementById("checkInDatePopup");
 export const checkOutDate = document.getElementById("checkOutDatePopup");
 const calender = document.querySelector(".date-calender");
-
 
 const addGuests = document.getElementById("addGuests");
 const addInfants = document.getElementById("addInfants");
@@ -38,15 +41,174 @@ const closeBtn = document.getElementById("closeBtn");
 const guestPopupContainer = document.getElementById("popUpGuests");
 searchText.textContent = "Search";
 
+let isDestinationPopupOpen = false;
 let isGuestPopopOpen = false;
 let isCheckInDate = false;
 let isCheckOutDate = false;
+
+/* ------------------------- Search Destination ------------------- */
+const searchDesValue = document.getElementById("searchDesValue");
+const flexible = document.getElementById("flexible");
+const europe = document.getElementById("europe");
+const canada = document.getElementById("canada");
+const unitedStates = document.getElementById("unitedState");
+const unitedKingdom = document.getElementById("unitedKingdom");
+const middleEast = document.getElementById("middleEast");
+const closeDestinationBtn = document.getElementById("closeDesBtn");
+
+closeDestinationBtn.addEventListener("click", (e) => {
+  if (searchDestination.classList.contains("whiteBg")) {
+    e.stopPropagation();
+    searchDesValue.textContent = "Search destiniations";
+    searchDesValue.classList.remove("boldText");
+    closeDestinationBtn.classList.remove("showCloseCheckOutBtn");
+    destinationPopup.classList.add("showDestinationPopup");
+  }
+});
+
+flexible.addEventListener("click", () => {
+  searchDesValue.textContent = "Search destiniations";
+  searchDesValue.classList.remove("boldText");
+  closeDestinationBtn.classList.remove("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+europe.addEventListener("click", () => {
+  window.sessionStorage.setItem("europe", JSON.stringify(europe.textContent));
+  const savedEurope = JSON.parse(window.sessionStorage.getItem("europe"));
+  searchDesValue.textContent = savedEurope;
+  searchDesValue.classList.add("boldText");
+  closeDestinationBtn.classList.add("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+canada.addEventListener("click", () => {
+  window.sessionStorage.setItem("canada", JSON.stringify(canada.textContent));
+  const savedCandacanada = JSON.parse(window.sessionStorage.getItem("canada"));
+  searchDesValue.textContent = savedCandacanada;
+  searchDesValue.classList.add("boldText");
+  closeDestinationBtn.classList.add("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+unitedStates.addEventListener("click", () => {
+  window.sessionStorage.setItem(
+    "unitedStates",
+    JSON.stringify(unitedStates.textContent)
+  );
+  const savedUniteunitedStates = JSON.parse(
+    window.sessionStorage.getItem("unitedStates")
+  );
+  searchDesValue.textContent = savedUniteunitedStates;
+  searchDesValue.classList.add("boldText");
+  closeDestinationBtn.classList.add("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+unitedKingdom.addEventListener("click", () => {
+  window.sessionStorage.setItem(
+    "unitedKingdom",
+    JSON.stringify(unitedKingdom.textContent)
+  );
+  const savedUnitedunitedKingdom = JSON.parse(
+    window.sessionStorage.getItem("unitedKingdom")
+  );
+  searchDesValue.textContent = savedUnitedunitedKingdom;
+  searchDesValue.classList.add("boldText");
+  closeDestinationBtn.classList.add("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+middleEast.addEventListener("click", () => {
+  window.sessionStorage.setItem(
+    "middleEast",
+    JSON.stringify(middleEast.textContent)
+  );
+  const savedMiddleEast = JSON.parse(
+    window.sessionStorage.getItem("middleEast")
+  );
+  searchDesValue.textContent = savedMiddleEast;
+  searchDesValue.classList.add("boldText");
+  closeDestinationBtn.classList.add("showCloseCheckOutBtn");
+
+  searchDestination.classList.remove("whiteBg");
+  checkInDate.classList.add("whiteBg");
+  calender.classList.add("showCalender");
+  destinationPopup.classList.remove("showDestinationPopup");
+});
+
+/* --------------------- Search Destinations - Popover ----------------------- */
+searchDestination.addEventListener("click", () => {
+  isDestinationPopupOpen = !isDestinationPopupOpen;
+
+  if (calender.classList.contains("showCalender")) {
+    isDestinationPopupOpen = true;
+    checkOutDate.classList.remove("whiteBg");
+    checkInDate.classList.remove("whiteBg");
+    calender.classList.remove("showCalender");
+  }
+
+  if (guestsSection.classList.contains("whiteBg")) {
+    isDestinationPopupOpen = true;
+    isGuestPopopOpen = true;
+    guestsSection.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+
+    searchContainer.appendChild(searchText);
+    searchContainer.classList.add("showText");
+  }
+
+  if (isDestinationPopupOpen) {
+    destinationPopup.classList.add("showDestinationPopup");
+    searchDestination.classList.add("whiteBg");
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.add("grayBg");
+    searchContainer.appendChild(searchText);
+    searchContainer.classList.add("showText");
+
+    isGuestPopopOpen = true;
+
+    checkOutDate.classList.remove("whiteBg");
+    checkInDate.classList.remove("whiteBg");
+    calender.classList.remove("showCalender");
+  } else {
+    destinationPopup.classList.remove("showDestinationPopup");
+    searchDestination.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.remove("grayBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+
+    isGuestPopopOpen = !isGuestPopopOpen;
+  }
+});
 
 if (addGuests.textContent != 1) {
   addGuests.textContent = "Add guest";
   addGuests.classList.toggle("defaultColor");
 }
 
+/* ----------------------- Add Guests - Popover ----------------------- */
 guestsSection.addEventListener("click", () => {
   isGuestPopopOpen = !isGuestPopopOpen;
 
@@ -55,19 +217,19 @@ guestsSection.addEventListener("click", () => {
   let infantCountNum = 0;
   let petCountNum = 0;
 
-  
   if (calender.classList.contains("showCalender")) {
     checkOutDate.classList.remove("whiteBg");
     checkInDate.classList.remove("whiteBg");
     calender.classList.remove("showCalender");
 
-    isGuestPopopOpen = true
+    isGuestPopopOpen = true;
+  }
 
-    guestPopupContainer.innerHTML = guestPop();
-    subHeaderWrapper.classList.add("grayBg");
-    guestsSection.classList.add("whiteBg");
-    searchContainer.appendChild(searchText);
-    searchContainer.classList.add("showText");
+  if (searchDestination.classList.contains("whiteBg")) {
+    destinationPopup.classList.remove("showDestinationPopup");
+    searchDestination.classList.remove("whiteBg");
+
+    isGuestPopopOpen = true;
   }
 
   if (isGuestPopopOpen) {
@@ -597,30 +759,40 @@ window.addEventListener("DOMContentLoaded", (e) => {
   window.sessionStorage.setItem("petCount", JSON.stringify(0));
 });
 
-/* -------------------- CheckInDate ------------------ */
+/* --------------------  Calender - CheckInDate ------------------ */
 
 checkInDate.addEventListener("click", () => {
-  isCheckOutDate = false
+  isCheckOutDate = false;
   isCheckInDate = !isCheckInDate;
   checkOutDate.classList.remove("whiteBg");
 
   if (guestsSection.classList.contains("whiteBg")) {
-    isCheckInDate = true
-    guestPopupContainer.innerHTML = ""
+    isCheckInDate = true;
+    guestPopupContainer.innerHTML = "";
     guestsSection.classList.remove("whiteBg");
     checkInDate.classList.add("whiteBg");
     checkOutDate.classList.remove("whiteBg");
     calender.classList.add("showCalender");
 
-    isGuestPopopOpen = true
+    isGuestPopopOpen = true;
+
     searchContainer.appendChild(searchText);
     searchContainer.classList.add("showText");
+  }
+
+  if (searchDestination.classList.contains("whiteBg")) {
+    isCheckInDate = true;
+    destinationPopup.classList.remove("showDestinationPopup");
+    searchDestination.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+
+    isDestinationPopupOpen = true;
   }
 
   if (isCheckInDate) {
     guestPopupContainer.innerHTML = "";
     subHeaderWrapper.classList.add("grayBg");
-    guestsSection.classList.remove("whiteBg")
+    guestsSection.classList.remove("whiteBg");
     checkInDate.classList.add("whiteBg");
     searchContainer.appendChild(searchText);
     searchContainer.classList.add("showText");
@@ -637,37 +809,43 @@ checkInDate.addEventListener("click", () => {
   }
 });
 
-
+/* ------------------- Calender - Checkout Date --------------- */
 checkOutDate.addEventListener("click", () => {
   isCheckInDate = false;
   isCheckOutDate = !isCheckOutDate;
   checkInDate.classList.remove("whiteBg");
 
   if (guestsSection.classList.contains("whiteBg")) {
-    isCheckOutDate = true
-    guestPopupContainer.innerHTML = ""
+    isCheckOutDate = true;
+    guestPopupContainer.innerHTML = "";
     guestsSection.classList.remove("whiteBg");
     checkOutDate.classList.add("whiteBg");
     checkInDate.classList.remove("whiteBg");
     calender.classList.add("showCalender");
 
-    isGuestPopopOpen = true
+    isGuestPopopOpen = true;
+
     searchContainer.appendChild(searchText);
     searchContainer.classList.add("showText");
+  }
+
+  if (searchDestination.classList.contains("whiteBg")) {
+    isCheckOutDate = true;
+    destinationPopup.classList.remove("showDestinationPopup");
+    searchDestination.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+
+    isDestinationPopupOpen = true;
   }
 
   if (isCheckOutDate) {
     guestPopupContainer.innerHTML = "";
     subHeaderWrapper.classList.add("grayBg");
-    guestsSection.classList.remove("whiteBg")
+    guestsSection.classList.remove("whiteBg");
     checkOutDate.classList.add("whiteBg");
     searchContainer.appendChild(searchText);
     searchContainer.classList.add("showText");
     calender.classList.add("showCalender");
-
-    if (isGuestPopopOpen && guestsSection.classList.contains("whiteBg")) {
-      guestPopupContainer.innerHTML = ""
-    }
 
     checkInDate.classList.remove("whiteBg");
   } else {
@@ -679,6 +857,17 @@ checkOutDate.addEventListener("click", () => {
     calender.classList.remove("showCalender");
   }
 });
+
+if (
+  searchDestination.classList.contains("whiteBg") &&
+  calender.classList.contains("showCalender") &&
+  guestsSection.classList.contains("whiteBg")
+) {
+  isDestinationPopupOpen = true;
+  isCheckInDate = true;
+  isCheckOutDate = true;
+  isGuestPopopOpen = true;
+}
 
 /* --------------- Close and Cancel Guest filter --------------- */
 closeBtn.addEventListener("click", (e) => {
@@ -718,6 +907,14 @@ homeNav.addEventListener("mousedown", (e) => {
     isMenuOpen = false;
   }
 
+  if (!destinationPopup.contains(e.target)) {
+    searchDestination.classList.remove("whiteBg");
+    destinationPopup.classList.remove("showDestinationPopup");
+    subHeaderWrapper.classList.remove("grayBg");
+    searchContainer.classList.remove("showText");
+    isDestinationPopupOpen = false
+  }
+
   if (!guestPopupContainer.contains(e.target)) {
     guestPopupContainer.innerHTML = "";
     isGuestPopopOpen = false;
@@ -745,10 +942,26 @@ subHeaderWrapper.addEventListener("mousedown", (e) => {
   }
 });
 
+
 mainElement.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
     popUpMenu.innerHTML = "";
     isMenuOpen = false;
+  }
+
+  if (!destinationPopup.contains(e.target)) {
+    searchDestination.classList.remove("whiteBg");
+    destinationPopup.classList.remove("showDestinationPopup");
+    subHeaderWrapper.classList.remove("grayBg");
+    searchContainer.classList.remove("showText");
+    isDestinationPopupOpen = false
+  }
+
+  if (!calender.contains(e.target)) {
+    subHeaderWrapper.classList.remove("grayBg");
+    checkOutDate.classList.remove("whiteBg");
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
   }
 
   if (!guestPopupContainer.contains(e.target)) {
@@ -756,7 +969,6 @@ mainElement.addEventListener("mousedown", (e) => {
     isGuestPopopOpen = false;
     subHeaderWrapper.classList.remove("grayBg");
     guestsSection.classList.remove("whiteBg");
-    searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
   }
 

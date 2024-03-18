@@ -76,11 +76,13 @@
 
   <!-- ------------- Sub menu ----------- -->
   <section class="sub-header-wrapper rounded-pill">
-    <div class="filter">
+    <div class="filter" id="searchDestination">
       <div>
         <h6>Where</h6>
-        <p>Search destiniations</p>
+        <p id="searchDesValue">Search destiniations</p>
       </div>
+
+      <span id="closeDesBtn" class="btn fs-5 btn-sm rounded-circle"><i class="bi bi-x"></i></span>
     </div>
 
     <div class="divider"></div>
@@ -129,6 +131,43 @@
     </div>
 
     <div id="popUpGuests"></div>
+    <div id="destinationPopup" class="">
+      <div>
+        <h6 class="fw-bold">Search by region</h6>
+
+        <div class="row pt-3 row-gap-3">
+          <div class="col-4 pt-2 rounded-3 country" id="flexible">
+            <img class="img-fluid rounded-3 border" src="/home-assets/flexible.jpg" alt="">
+            <h6 class="text-muted pt-2">I&apos;m Flexible</h6>
+          </div>
+
+          <div class="col-4 pt-2 rounded-3 country" id="europe">
+            <img class="img-fluid rounded-3 border" src="/home-assets/europe.webp" alt="">
+            <h6 class="text-muted pt-2">Europe</h6>
+          </div>
+
+          <div class="col-4 pt-2 rounded-3 country" id="canada">
+            <img class="img-fluid rounded-3 border" src="/home-assets/canada.webp" alt="">
+            <h6 class="text-muted pt-2">Canada</h6>
+          </div>
+
+          <div class="col-4 pt-2 rounded-3 country" id="unitedState">
+            <img class="img-fluid rounded-3 border" src="/home-assets/america.webp" alt="">
+            <h6 class="text-muted pt-2">United States</h6>
+          </div>
+
+          <div class="col-4 pt-2 rounded-3 country" id="unitedKingdom">
+            <img class="img-fluid rounded-3 border" src="/home-assets/unitedKingdom.webp" alt="">
+            <h6 class="text-muted pt-2 text-nowrap">United Kingdom</h6>
+          </div>
+
+          <div class="col-4 pt-2 rounded-3 country" id="middleEast">
+            <img class="img-fluid rounded-3 border" src="/home-assets/middleEast.webp" alt="">
+            <h6 class="text-muted pt-2">Middle East</h6>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div id="calendar" class="date-calender rounded-5 shadow-lg"></div>

@@ -43,17 +43,20 @@
 .date-calender {
   width: 85%;
   max-width: 900px;
-  margin: 0 auto;
+  margin: -0.5rem auto 0;
   height: 100%;
   display: none;
 
   &.showCalender {
     display: block;
   }
-}
 
-.boldText {
-    font-size: 0.90rem;
+  &.boldText {
+    font-size: 0.8rem;
     color: black;
     font-weight: 700;
+    color: red;
 }
+}
+
+
