@@ -1,6 +1,7 @@
-import "./node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "./sass/home.scss";
+import "./sass/calender.scss";
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
 
@@ -91,7 +92,7 @@ guestsSection.addEventListener("click", () => {
 
       childrenCount.textContent = childrenCountNum;
 
-      if (savedAdultCount === 0) {
+      if (adultCountNum === 0) {
         adultCountNum = 1;
         window.sessionStorage.setItem(
           "adultCount",
@@ -356,7 +357,7 @@ guestsSection.addEventListener("click", () => {
 
       infantCount.textContent = infantCountNum;
 
-      if (savedAdultCount === 0) {
+      if (adultCountNum === 0) {
         adultCountNum = 1;
         window.sessionStorage.setItem(
           "adultCount",
@@ -457,12 +458,6 @@ guestsSection.addEventListener("click", () => {
       const savedPetCount = JSON.parse(
         window.sessionStorage.getItem("petCount")
       );
-      let savedAdultCount = JSON.parse(
-        window.sessionStorage.getItem("adultCount")
-      );
-      const savedInfantCount = JSON.parse(
-        window.sessionStorage.getItem("infantCount")
-      );
 
       if (petCountNum < 5) {
         window.sessionStorage.setItem("petCount", JSON.stringify(petCountNum));
@@ -472,7 +467,7 @@ guestsSection.addEventListener("click", () => {
 
       petCount.textContent = petCountNum;
 
-      if (savedAdultCount === 0) {
+      if (adultCountNum === 0) {
         adultCountNum = 1;
         window.sessionStorage.setItem(
           "adultCount",
@@ -579,8 +574,71 @@ window.addEventListener("DOMContentLoaded", (e) => {
   window.sessionStorage.setItem("petCount", JSON.stringify(0));
 });
 
+/* -------------------- CheckInDate ------------------ */
+export const checkInDate = document.getElementById("checkInDatePopup");
+export const checkOutDate = document.getElementById("checkOutDatePopup");
+const calender = document.querySelector(".date-calender");
 
-closeBtn.addEventListener("click", () => {
+let isCheckInDate = false;
+let isCheckOutDate = false;
+
+checkInDate.addEventListener("click", () => {
+  isCheckOutDate = false
+  isCheckInDate = !isCheckInDate;
+
+  checkOutDate.classList.remove("whiteBg");
+
+  if (isCheckInDate) {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.add("grayBg");
+    checkInDate.classList.add("whiteBg");
+    searchContainer.appendChild(searchText);
+    searchContainer.classList.add("showText");
+    calender.classList.add("showCalender");
+
+    checkOutDate.classList.remove("whiteBg");
+  } else {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.remove("grayBg");
+    checkInDate.classList.remove("whiteBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
+  }
+});
+
+
+checkOutDate.addEventListener("click", () => {
+  isCheckInDate = false;
+  isCheckOutDate = !isCheckOutDate;
+
+  checkInDate.classList.remove("whiteBg");
+
+  if (isCheckOutDate) {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.add("grayBg");
+    checkOutDate.classList.add("whiteBg");
+    searchContainer.appendChild(searchText);
+    searchContainer.classList.add("showText");
+    calender.classList.add("showCalender");
+
+    checkInDate.classList.remove("whiteBg");
+  } else {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.remove("grayBg");
+    checkOutDate.classList.remove("whiteBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
+  }
+});
+
+/* --------------- Close and Cancel Guest filter --------------- */
+closeBtn.addEventListener("click", (e) => {
+  if (!isGuestPopopOpen) {
+    e.stopPropagation();
+  }
+
   window.sessionStorage.setItem("adultCount", JSON.stringify(0));
   window.sessionStorage.setItem("childrenCount", JSON.stringify(0));
   window.sessionStorage.setItem("infantCount", JSON.stringify(0));
@@ -589,40 +647,39 @@ closeBtn.addEventListener("click", () => {
   addInfants.textContent = "";
   addPets.textContent = "";
   addGuests.textContent = "Add guests";
-  
+
+  guestPopupContainer.innerHTML = "";
+
   const savedInfantCount = JSON.parse(
     window.sessionStorage.getItem("infantCount")
   );
 
   if (savedInfantCount < 1) {
-    addInfants.textContent = ""
+    addInfants.textContent = "";
   }
 
   closeBtn.classList.remove("showCloseBtn");
 });
 
-
-
 /* ------------ Close All Popups when clicked outside ------------- */
-const mainElement = document.getElementById("mainElement")
-const homeNav = document.getElementById("homeNav")
+const mainElement = document.getElementById("mainElement");
+const homeNav = document.getElementById("homeNav");
 
 homeNav.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
-    popUpMenu.innerHTML = ""
-    isMenuOpen = false
+    popUpMenu.innerHTML = "";
+    isMenuOpen = false;
   }
 
   if (!guestPopupContainer.contains(e.target)) {
     guestPopupContainer.innerHTML = "";
-    isGuestPopopOpen = false
+    isGuestPopopOpen = false;
     subHeaderWrapper.classList.remove("grayBg");
     guestsSection.classList.remove("whiteBg");
     searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
   }
 
-  
   const savedInfantCount = JSON.parse(
     window.sessionStorage.getItem("infantCount")
   );
@@ -632,32 +689,30 @@ homeNav.addEventListener("mousedown", (e) => {
   }
 
   addPets.classList.remove("hidePets");
-})
+});
 
 subHeaderWrapper.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
-    popUpMenu.innerHTML = ""
-    isMenuOpen = false
+    popUpMenu.innerHTML = "";
+    isMenuOpen = false;
   }
-})
-
+});
 
 mainElement.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
-    popUpMenu.innerHTML = ""
-    isMenuOpen = false
+    popUpMenu.innerHTML = "";
+    isMenuOpen = false;
   }
 
   if (!guestPopupContainer.contains(e.target)) {
     guestPopupContainer.innerHTML = "";
-    isGuestPopopOpen = false
+    isGuestPopopOpen = false;
     subHeaderWrapper.classList.remove("grayBg");
     guestsSection.classList.remove("whiteBg");
     searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
   }
 
-  
   const savedInfantCount = JSON.parse(
     window.sessionStorage.getItem("infantCount")
   );
@@ -667,5 +722,4 @@ mainElement.addEventListener("mousedown", (e) => {
   }
 
   addPets.classList.remove("hidePets");
-})
-
+});

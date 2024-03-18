@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Airbnb Clone</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/custome.min.css">
 </head>
 
@@ -82,16 +83,16 @@
 
       <div class="divider"></div>
 
-      <div class="filter">
+      <div class="filter" id="checkInDatePopup">
         <h6>Check in</h6>
-        <p>Add dates</p>
+        <p id="displayCheckInDate">Add dates</p>
       </div>
 
       <div class="divider"></div>
 
-      <div class="filter third-child">
+      <div class="filter third-child" id="checkOutDatePopup">
         <h6>Check out</h6>
-        <p>Add dates</p>
+        <p id="displayCheckOutDate">Add dates</p>
       </div>
 
       <div class="divider"></div>
@@ -119,6 +120,8 @@
 
       <div id="popUpGuests"></div>
     </section>
+
+    <div id="calendar" class="date-calender rounded-5 shadow"></div>
 
     <main id="mainElement">
     <!-- ------------ World Modal ----------- -->
@@ -313,7 +316,6 @@
         </div>
       </div>
 
-
       <!-- <div className={classes["buttons-mobile"]}>
       <Button title="Stays"></Button>
       <Button title="Experiences"></Button>
@@ -322,6 +324,8 @@
 
 
   </main>
+
+  <script type="module" src="calender.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 

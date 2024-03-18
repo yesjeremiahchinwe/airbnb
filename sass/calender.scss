@@ -1,0 +1,59 @@
+.vanilla-calendar-day__btn {
+  display: flex;
+  height: 100%;
+  min-height: 2.875rem;
+  width: 100%;
+  min-width: 2.875rem;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-width: 0px;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+.vanilla-calendar-grid {
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.vanilla-calendar-controls {
+  left: 3%;
+  right: 3%;
+  top: 3%;
+}
+
+.vanilla-calendar-week {
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  justify-items: center;
+}
+
+.vanilla-calendar-days {
+  gap: 0.5rem;
+}
+
+
+/* ------------------- Date Calender --------------- */
+.date-calender {
+  width: 85%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  display: none;
+
+  &.showCalender {
+    display: block;
+  }
+}
+
+.boldText {
+    font-size: 0.90rem;
+    color: black;
+    font-weight: 700;
+}

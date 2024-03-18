@@ -114,6 +114,18 @@ li {
     background-color: rgba(221, 221, 221, 0.7);
     border-radius: 60px;
   }
+
+  
+  &.whiteBg {
+    background-color: #fff;
+    border-radius: 60px;
+    height: 97%;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
 }
 
 .last-filter-wrapper {
@@ -259,6 +271,8 @@ li {
   }
 }
 
+
+/* --------------- Guest Popup ------------- */
 .popup-guests {
   position: absolute;
   right: 0;
