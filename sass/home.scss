@@ -5,8 +5,14 @@ body {
   min-width: 320px;
 }
 
+header {
+  z-index: 100;
+  // border-bottom: 1px solid rgba(221, 221, 221, 0.7);
+}
+
 #mainElement {
-  min-height: 100vh;
+  display: block;
+  // min-height: 100vh;
 }
 
 a {
@@ -66,9 +72,9 @@ li {
   width: 85%;
   max-width: 950px;
   height: 70px;
-  z-index: 30;
+  z-index: 90;
   background-color: #fff;
-  margin: 0 auto 1.2rem auto;
+  margin: 0.5rem auto 1.2rem auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 60px;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);

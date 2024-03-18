@@ -72,7 +72,7 @@ const options = {
         closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
       } 
 
-      if (checkOutText === "Add dates" && checkInText !== "Add dates" && checkInDate.classList.contains("whiteBg")) {
+      if (checkOutText === "Add dates" && checkInText && checkInDate.classList.contains("whiteBg")) {
         checkInDate.classList.remove("whiteBg");
         checkOutDate.classList.add("whiteBg");
         closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
@@ -86,7 +86,7 @@ const options = {
         closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
       }
 
-      if (checkInText == "Add dates" && checkOutText !== "Add dates" && checkOutDate.classList.contains("whiteBg")) {
+      if (checkInText == "Add dates" && checkOutDate && checkOutDate.classList.contains("whiteBg")) {
         checkOutDate.classList.remove("whiteBg");
         checkInDate.classList.add("whiteBg");
         closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")

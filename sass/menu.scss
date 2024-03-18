@@ -1,0 +1,219 @@
+#menu_list_container {
+    width: 100%;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    position: sticky;
+    top: 80px;
+    left: 0;
+    background-color: #fff;
+    z-index: 20;
+    padding: 0.5rem 0.5rem;
+  }
+  
+  .wrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+
+    .menu-list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: repeat(61, 1fr);
+      background-color: #fff;
+      flex-grow: 1;
+      flex-basis: 70%;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      align-items: center;
+      gap: 2.5rem;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      height: fit-content;
+      position: relative;
+      overflow-y: hidden;
+    
+      &::-webkit-scrollbar {
+        width: 3px;
+        height: 6px;
+      }
+    
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        border-radius: 30px;
+        background: rgb(218, 216, 216);
+        transition: all 0.3s ease;
+    
+        &:hover {
+          background-color: #717171;
+        }
+      }
+    
+      .next-prev-navigation {
+        position: absolute;
+        padding: 0 1rem;
+        border-radius: 50%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transform: translateY(-100%);
+    
+        .navigation {
+          position: absolute;
+          font-size: 1rem;
+          font-size: 2rem;
+          background-color: blue;
+          padding: 0 1rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+    
+          &.next {
+            right: 0%;
+          }
+        }
+      }
+    }
+  }
+  
+
+  .filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    border: 1px solid rgba(221, 221, 221, 0.8);
+    border-radius: 10px;
+    padding: 0 1rem;
+    height: 55px;
+
+    nobr {
+        font-size: 0.79rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+    }
+
+    .check-box {
+        width: 40px;
+        border-radius: 20px;
+        padding: 0.1rem 0.15rem;
+        height: 25px;
+        background-color: #b6b5b5;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #000;
+        }
+
+        &.checked {
+          justify-content: flex-end;
+          background-color: #000;
+      }
+
+        .box {
+            background-color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+    }
+}
+
+  .filter-button {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    border: 1px solid rgba(221, 221, 221, 0.8);
+    border-radius: 12px;
+    padding: 0 1rem;
+    height: 54px;
+
+    span {
+        font-size: 0.9rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+  
+  @media screen and (min-width: 750px) {
+    #menu_list_container {
+      border-top: 1px solid rgba(221, 221, 221, 0.5);
+      border-bottom: 0px transparent;
+    }
+  
+    .wrapper {
+      padding-top: 1.5rem;
+      top: 80px;
+    }
+  
+    .filter-options {
+      display: flex;
+      width: fit-content;
+  
+      .hide_filter {
+        display: flex;
+      }
+    }
+  
+    .menu-list {
+      scrollbar-width: unset;
+    }
+  }
+  
+  @media screen and (min-width: 1050px) {
+    .wrapper {
+      top: 80px;
+    }
+  }
+
+
+  .section {
+    cursor: pointer;
+  }
+  
+  .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    gap: 0.25rem;
+  
+    p {
+      
+      &.active {
+        color: #000;
+        font-weight: 500;
+      }
+    }
+  
+    img {
+      width: 25px;
+    }
+  
+    nobr {
+      font-size: 0.78rem;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      color: #717171;
+      font-weight: 500;
+    }
+  }
+  
+  

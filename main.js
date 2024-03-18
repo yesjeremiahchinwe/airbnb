@@ -1,7 +1,8 @@
 import "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-
 import "./sass/home.scss";
 import "./sass/calender.scss";
+import "./sass/navbar.scss";
+import "./sass/menu.scss";
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
 
@@ -16,6 +17,16 @@ menuBtn.addEventListener("click", () => {
 
   if (isMenuOpen) {
     popUpMenu.innerHTML = userDetails();
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.remove("grayBg");
+    guestsSection.classList.remove("whiteBg");
+    searchContainer.removeChild(searchText);
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
+    checkInDate.classList.remove("whiteBg");
+    checkOutDate.classList.remove("whiteBg");
+    searchDestination.classList.remove("whiteBg");
+    destinationPopup.classList.remove("showDestinationPopup");
   } else {
     popUpMenu.innerHTML = "";
   }
@@ -912,19 +923,18 @@ homeNav.addEventListener("mousedown", (e) => {
     destinationPopup.classList.remove("showDestinationPopup");
     subHeaderWrapper.classList.remove("grayBg");
     searchContainer.classList.remove("showText");
-    isDestinationPopupOpen = false
+    isDestinationPopupOpen = true;
   }
 
-  
   if (!calender.contains(e.target)) {
-    checkInDate.classList.remove("whiteBg")
-    checkOutDate.classList.remove("whiteBg")
+    checkInDate.classList.remove("whiteBg");
+    checkOutDate.classList.remove("whiteBg");
     subHeaderWrapper.classList.remove("grayBg");
     checkOutDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
-    isCheckInDate = true
-    isCheckOutDate = true
+    isCheckInDate = !isCheckInDate;
+    isCheckOutDate = !isCheckOutDate;
   }
 
   if (!guestPopupContainer.contains(e.target)) {
@@ -954,7 +964,6 @@ subHeaderWrapper.addEventListener("mousedown", (e) => {
   }
 });
 
-
 mainElement.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
     popUpMenu.innerHTML = "";
@@ -966,18 +975,18 @@ mainElement.addEventListener("mousedown", (e) => {
     destinationPopup.classList.remove("showDestinationPopup");
     subHeaderWrapper.classList.remove("grayBg");
     searchContainer.classList.remove("showText");
-    isDestinationPopupOpen = false
+    isDestinationPopupOpen = true;
   }
 
   if (!calender.contains(e.target)) {
-    checkInDate.classList.remove("whiteBg")
-    checkOutDate.classList.remove("whiteBg")
+    checkInDate.classList.remove("whiteBg");
+    checkOutDate.classList.remove("whiteBg");
     subHeaderWrapper.classList.remove("grayBg");
     checkOutDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
-    isCheckInDate = !isCheckInDate
-    isCheckOutDate = !isCheckOutDate
+    isCheckInDate = !isCheckInDate;
+    isCheckOutDate = !isCheckOutDate;
   }
 
   if (!guestPopupContainer.contains(e.target)) {
@@ -997,4 +1006,20 @@ mainElement.addEventListener("mousedown", (e) => {
   }
 
   addPets.classList.remove("hidePets");
+});
+
+/* ------------- Menu Switch ------------ */
+const switchEle = document.getElementById("taxSwitch");
+const checkBox = document.querySelector(".check-box")
+
+let isTaxChecked = false;
+
+switchEle.addEventListener("click", () => {
+  isTaxChecked = !isTaxChecked;
+
+  if (isTaxChecked) {
+    checkBox.classList.add("checked");
+  } else {
+    checkBox.classList.remove("checked");
+  }
 });

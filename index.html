@@ -12,9 +12,34 @@
 </head>
 
 <body>
-  <header class="position-relative ">
+  <header class="position-sticky top-0 bg-white">
+    <!-- ---------------- Mobile Navbar ---------------- -->
+    <section class="sub-header-wrapper-mobile d-flex d-md-none">
+      <div class="mobile-search">
+        <i class="bi bi-search text-black"></i>
+
+        <div class='desc'>
+          <h6>Anywhere</h6>
+          <p>
+            <span>Any week . Add guests</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="filter-options">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation"
+          focusable="false"
+          style="display: block; fill: #000; height: 18px; stroke: #717171; stroke-width: 3; overflow: visible;">
+          <path fill="#000"
+            d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3">
+          </path>
+        </svg>
+      </div>
+    </section>
+
     <nav class="navbar navbar-expand-md sticky-top z-1 w-100 position-relative">
-      <div class="w-100 container-xxl p-3 py-lg-2 px-lg-5 p-xxl-0">
+      <!-- --------------- Desktop Navbar ---------------- -->
+      <div class="w-100 container-xxl d-none d-md-flex align-items-center gap-2 p-3 py-lg-2 px-lg-5 p-xxl-0">
         <div class="d-flex justify-content-between align-items-center w-100" id="homeNav">
           <a href="index.html" class="navbar-brand flex-grow-1">
             <svg width="102" height="32" style="display: block">
@@ -27,14 +52,7 @@
             </svg>
           </a>
 
-          <!-- --------- Toggle button for mobile nav ---------- -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="d-none d-md-flex column-gap-2 align-items-center text-center justify-content-end flex-grow-1">
+          <div class="d-none d-lg-flex column-gap-2 align-items-center text-center justify-content-end flex-grow-1">
             <button type="button" class="btn fw-semibold text-secondary">
               Stays
             </button>
@@ -65,7 +83,6 @@
           <i class="bi bi-list fs-5"></i>
           <i class="bi bi-person-circle fs-5"></i>
         </div>
-
       </div>
     </nav>
 
@@ -73,9 +90,18 @@
     <div class="popup shadow-sm"></div>
   </header>
 
-
   <!-- ------------- Sub menu ----------- -->
-  <section class="sub-header-wrapper rounded-pill">
+  <div
+    class="d-none d-md-flex d-lg-none mx-auto w-100 pb-3 column-gap-2 align-items-center text-center justify-content-center flex-grow-1">
+    <button type="button" class="btn fw-semibold text-secondary">
+      Stays
+    </button>
+    <button type="button" class="btn fs-6 fw-semibold text-secondary">
+      Experiences
+    </button>
+    <a href="experiences.html" class="btn fw-semibold text-secondary">Online Experiences</a>
+  </div>
+  <section class="sub-header-wrapper rounded-pill d-none d-md-flex">
     <div class="filter" id="searchDestination">
       <div>
         <h6>Where</h6>
@@ -171,7 +197,7 @@
     </div>
   </section>
 
-  <div id="calendar" class="date-calender rounded-5 shadow-lg"></div>
+  <div id="calendar" class="date-calender position-absolute start-50 translate-middle-x rounded-5 shadow-lg"></div>
 
   <main id="mainElement">
     <!-- ------------ World Modal ----------- -->
@@ -373,9 +399,471 @@
     </div> -->
 
 
+      <!-- ---------------- Menu Navigation ---------------- -->
   </main>
 
+  <section id="menu_list_container" class="container-xxl">
+    <div class='wrapper'>
+      <div class='menu-list px-3 pt-lg-1 ps-lg-4 pe-lg-5 p-xxl-0 w-100'>
+        <div class='slide'>
+          <img src="/menu-images/amazing-views.jpg" alt="Amazing Views" />
+          <p>
+            <nobr>Amazing views</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/trending.jpg" alt="Trending" />
+          <p>
+            <nobr>Trending</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/rooms.jpg" alt="Rooms" />
+          <p>
+            <nobr>Rooms</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/windmills.jpg" alt="Windmills" />
+          <p>
+            <nobr>Windmills</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/play.jpg" alt="Play" />
+          <p>
+            <nobr>Play</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/lakefront.jpg" alt="Lakefront" />
+          <p>
+            <nobr>Lakefront</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/caves.jpg" alt="Caves" />
+          <p>
+            <nobr>Caves</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/national-parks.jpg" alt="National Parks" />
+          <p>
+            <nobr>National Parks</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/castles.jpg" alt="Castles" />
+          <p>
+            <nobr>Castles</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/cabins.jpg" alt="Cabins" />
+          <p>
+            <nobr>Cabins</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/campers.jpg" alt="Campers" />
+          <p>
+            <nobr>Campers</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/islands.jpg" alt="Islands" />
+          <p>
+            <nobr>Islands</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/beach.jpg" alt="Beach" />
+          <p>
+            <nobr>Beach</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/amazing-pools.jpg" alt="Amazing Pools" />
+          <p>
+            <nobr>Amazing Pools</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/omg.jpg" alt="Omg" />
+          <p>
+            <nobr>Omg</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/arctic.jpg" alt="Arctic" />
+          <p>
+            <nobr>Arctic</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/design.jpg" alt="Design" />
+          <p>
+            <nobr>Design</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/surfing.jpg" alt="Surfing" />
+          <p>
+            <nobr>Surfing</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/tropical.jpg" alt="Tropical" />
+          <p>
+            <nobr>Tropical</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/bed-breakfast.jpg" alt="Bed & Breakfasts" />
+          <p>
+            <nobr>Bed & Breakfasts</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/new.jpg" alt="New" />
+          <p>
+            <nobr>New</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/ionic-cities.jpg" alt="Iconic cities" />
+          <p>
+            <nobr>Iconic cities</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/country-side.jpg" alt="Countryside" />
+          <p>
+            <nobr>Countryside</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/lake.jpg" alt="Lake" />
+          <p>
+            <nobr>Lake</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/mansions.jpg" alt="Mansions" />
+          <p>
+            <nobr>Mansions</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/farms.jpg" alt="Farms" />
+          <p>
+            <nobr>Farms</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/tiny-homes.jpg" alt="Tiny Homes" />
+          <p>
+            <nobr>Tiny Homes</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/earth-homes.jpg" alt="Earth Homes" />
+          <p>
+            <nobr>Earth Homes</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/camping.jpg" alt="Camping" />
+          <p>
+            <nobr>Camping</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/a-frames.jpg" alt="A-Frames" />
+          <p>
+            <nobr>A-Frames</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/luxe.jpg" alt="Luxe" />
+          <p>
+            <nobr>Luxe</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/vanyards.jpg" alt="Vanyards" />
+          <p>
+            <nobr>Vanyards</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/historical-homes.jpg" alt="Historical Homes" />
+          <p>
+            <nobr>Historical Homes</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/top-of-the-world.jpg" alt="Top Of The World" />
+          <p>
+            <nobr>Top Of The World</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/golfing.jpg" alt="Golfings" />
+          <p>
+            <nobr>Golfings</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/hanoks.jpg" alt="Hanoks" />
+          <p>
+            <nobr>Hanoks</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/skiing.jpg" alt="Skiings" />
+          <p>
+            <nobr>Skiings</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/cycladic-homes.jpg" alt="Cycladic Homes" />
+          <p>
+            <nobr>Cycladic Homes</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/chefs-kitchen.jpg" alt="Chef's Kitchens" />
+          <p>
+            <nobr>Chef's Kitchens</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/beachfront.jpg" alt="Beachfront" />
+          <p>
+            <nobr>Beachfront</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/minsus.jpg" alt="Minsus" />
+          <p>
+            <nobr>Minsus</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/tree-houses.jpg" alt="Treehouses" />
+          <p>
+            <nobr>Treehouses</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/rykons.jpg" alt="Ryokans" />
+          <p>
+            <nobr>Ryokans</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/yurts.jpg" alt="Yurts" />
+          <p>
+            <nobr>Yurts</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/shephards-hut.jpg" alt="Shepherd's huts" />
+          <p>
+            <nobr>Shepherd's huts</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/bans.jpg" alt="Barns" />
+          <p>
+            <nobr>Barns</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/casas.jpg" alt="Casas particulares" />
+          <p>
+            <nobr>Casas particulares</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/desert.jpg" alt="Desert" />
+          <p>
+            <nobr>desert</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/domes.jpg" alt="Domes" />
+          <p>
+            <nobr>Domes</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/towers.jpg" alt="Towers" />
+          <p>
+            <nobr>Towers</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/adapted.jpg" alt="Adapted" />
+          <p>
+            <nobr>Adapted</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/off-the-grid.jpg" alt="Off-the-grid" />
+          <p>
+            <nobr>Off-the-grid</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/boats.jpg" alt="Boats" />
+          <p>
+            <nobr>Boats</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/ski-in.jpg" alt="Ski-in/out" />
+          <p>
+            <nobr>Ski-in/out</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/containers.jpg" alt="Containers" />
+          <p>
+            <nobr>Containers</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/creative-spaces.jpg" alt="Creative spaces" />
+          <p>
+            <nobr>Creative spaces</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/grand-pianos.jpg" alt="Grand pianos" />
+          <p>
+            <nobr>Grand pianos</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/dammusi.jpg" alt="Dammusi" />
+          <p>
+            <nobr>Dammusi</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/trulli.jpg" alt="Trulli" />
+          <p>
+            <nobr>Trulli</nobr>
+          </p>
+        </div>
+
+        <div class='slide'>
+          <img src="/menu-images/riads.jpg" alt="Riads" />
+          <p>
+            <nobr>Riads</nobr>
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center me-3 gap-3 align-items-center flex-grow-1 bas">
+        <div class="filter-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: #000;
+              height: 18px;
+              width: 18px;
+              stroke: #717171;
+              stroke-width: 3;
+              overflow: visible"
+          >
+            <path
+              fill="#333"
+              d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3"
+            ></path>
+          </svg>
+          <span>Filters</span>
+      </div>
+
+      <div class="filter-button" id="taxSwitch">
+        <nobr>Display total before taxes</nobr>
+  
+        <div class="check-box">
+          <div class="box"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
   <script type="module" src="calender.js"></script>
+  <script type="module" src="menu.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 

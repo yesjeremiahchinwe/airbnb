@@ -42,10 +42,12 @@
 /* ------------------- Date Calender --------------- */
 .date-calender {
   width: 85%;
-  max-width: 900px;
+  max-width: 950px;
   margin: -0.5rem auto 0;
   height: 100%;
   display: none;
+  z-index: 90;
+  height: fit-content;
 
   &.showCalender {
     display: block;
