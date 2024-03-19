@@ -826,41 +826,103 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center me-3 gap-3 align-items-center flex-grow-1 bas">
-        <div class="filter-button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-            style="
+      <div class="d-none d-md-flex  justify-content-center me-3 gap-3 align-items-center flex-grow-1">
+        <div class="filter-button" data-bs-toggle="modal" data-bs-target="#filterModal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation"
+            focusable="false" style="
               display: block;
               fill: #000;
               height: 18px;
               width: 18px;
               stroke: #717171;
               stroke-width: 3;
-              overflow: visible"
-          >
-            <path
-              fill="#333"
-              d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3"
-            ></path>
+              overflow: visible">
+            <path fill="#333"
+              d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3">
+            </path>
           </svg>
           <span>Filters</span>
-      </div>
-
-      <div class="filter-button" id="taxSwitch">
-        <nobr>Display total before taxes</nobr>
-  
-        <div class="check-box">
-          <div class="box"></div>
         </div>
-      </div>
+
+        <div class="filter-button d-lg-flex" id="taxSwitch">
+          <nobr>Display total before taxes</nobr>
+
+          <div class="check-box">
+            <div class="box"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+
+  <!-- --------------- Filter Modal --------------- -->
+  <div class="modal modal-lg fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="filterModalLabel">Filters</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div>
+            <h5 class="fs-4">Type of Place</h5>
+            <p>Search rooms, entire homes, or any type of place</p>
+          </div>
+
+          <div class="pt-2 pb-4" style="width: 90%; margin: 0 auto; display: block;">
+            <div class="btn-group btn-group-lg justify-content-center w-100" role="group"
+              aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn bg-dark text-white fw-bold fs-6 py-4" for="btnradio1">Any type</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-dark fw-bold fs-6 py-4 text-black" for="btnradio2">Room</label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-dark fw-bold fs-6 py-4 text-black" for="btnradio3">Entire home</label>
+            </div>
+          </div>
+
+          <div class="border-top py-5">
+            <h5 class="fs-4 mb-1">Price range</h5>
+            <p class="text-muted">Nightly prices before fees and taxes</p>
+
+            <div class="container py-3">
+              <div class="row justify-content-center align-items-center" style="width: 98%; margin: 1rem auto">
+                <div class="col-5 ">
+                  <form class="form-floating">
+                    <input type="tel" class="form-control" id="floatingInputValue" placeholder="50"
+                      value="$ 10">
+                    <label for="floatingInputValue">Minimum</label>
+                  </form>
+                </div>
+
+                <div class="col-1 text-black mx-auto text-center">
+                  <i class="bi bi-dash-lg fs-3"></i>
+                </div>
+
+                <div class="col-5">
+                  <form class="form-floating">
+                    <input type="tel" class="form-control" id="floatingInputValue" placeholder="1000"
+                      value="$ 1100">
+                    <label for="floatingInputValue">Maximum</label>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light text-black fw-semibold fs-6" data-bs-dismiss="modal">Clear
+            all</button>
+          <button type="button" class="btn btn-dark py-2 px-3 fs-6 fw-semibold">Show 425 places</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="calender.js"></script>
   <script type="module" src="menu.js"></script>
