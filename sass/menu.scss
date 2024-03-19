@@ -6,16 +6,53 @@
     left: 0;
     background-color: #fff;
     z-index: 20;
-    padding: 0.5rem 0.5rem;
+    padding: 0 0.5rem;
   }
   
-  .wrapper {
+  .menu_wrapper {
     width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 3rem;
+
+    i {
+      display: none;
+      position: absolute;
+      top: 35%;
+      z-index: 1000;
+      display: none;
+      background-color: white;
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &:first-of-type {
+        left: 1%;
+      }
+
+      &:last-of-type {
+        left: 69%;
+      }
+    }
+
+    .leftArrow {
+      display: none;
+
+      &.showLeftArrow {
+        display: block;
+      }
+    }
+
+    .rightArrow {
+      display: none;
+
+      &.showRightArrow {
+        display: none;
+      }
+    }
 
     .menu-list {
       display: grid;
@@ -30,12 +67,12 @@
       scroll-behavior: smooth;
       scrollbar-width: none;
       align-items: center;
-      gap: 2.5rem;
+      gap: 2.65rem;
       width: 100%;
       margin: 0;
-      padding: 0;
       height: fit-content;
       position: relative;
+      z-index: 20;
       overflow-y: hidden;
     
       &::-webkit-scrollbar {
@@ -56,37 +93,8 @@
           background-color: #717171;
         }
       }
-    
-      .next-prev-navigation {
-        position: absolute;
-        padding: 0 1rem;
-        border-radius: 50%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transform: translateY(-100%);
-    
-        .navigation {
-          position: absolute;
-          font-size: 1rem;
-          font-size: 2rem;
-          background-color: blue;
-          padding: 0 1rem;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-    
-          &.next {
-            right: 0%;
-          }
-        }
-      }
     }
   }
-  
 
   .filter-button {
     display: flex;
@@ -158,9 +166,21 @@
       border-bottom: 0px transparent;
     }
   
-    .wrapper {
+    .menu_wrapper {
       padding-top: 1.5rem;
       top: 80px;
+
+      .menu-list {
+        margin-left: 2rem;
+      }
+
+      i {
+        display: block;
+      }
+
+      .rightArrow {
+        display: block;
+      }
     }
   
     .filter-options {
@@ -178,7 +198,7 @@
   }
   
   @media screen and (min-width: 1050px) {
-    .wrapper {
+    .menu_wrapper {
       top: 80px;
     }
   }
