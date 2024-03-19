@@ -390,12 +390,82 @@ li {
   }
 
   .modal-body {
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
+
+    a {
+      font-size: 0.9rem;
+    }
+
+    .guestFavorite {
+      width: 100%;
+      border: 1px solid rgba(221, 221, 221, 0.9);
+      cursor: pointer;
+      transition: all 0.2 ease;
+
+      &:hover {
+        border: 1px solid #000
+      }
+    }
+
+    .propertyType {
+      border: 1px solid rgba(221, 221, 221, 0.9);
+      cursor: pointer;
+      transition: all 0.2 ease;
+
+      &:hover {
+        border: 1px solid #000
+      }
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .apartment_container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
   }
 
   .modal-footer {
     justify-content: space-between;
     padding: 0.75rem 1rem;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  #filterModal {
+    .modal-body {
+      .apartment_container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 760px) {
+  #filterModal {
+    .modal-body {
+      padding: 1.5rem 2rem;
+
+      .guestFavorite {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #filterModal {
+    .modal-body {
+      .apartment_container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
   }
 }
 

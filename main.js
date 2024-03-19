@@ -27,8 +27,20 @@ menuBtn.addEventListener("click", () => {
     checkOutDate.classList.remove("whiteBg");
     searchDestination.classList.remove("whiteBg");
     destinationPopup.classList.remove("showDestinationPopup");
+
+    isGuestPopopOpen = true
+    isCheckInDate = true
+    isCheckOutDate = true
+    isDestinationPopupOpen = true
+    isMenuOpen = true
   } else {
     popUpMenu.innerHTML = "";
+    isGuestPopopOpen = true
+    isCheckInDate = true
+    isCheckOutDate = true
+    isDestinationPopupOpen = true
+    isMenuOpen = false
+   
   }
 });
 
@@ -961,6 +973,10 @@ subHeaderWrapper.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
     popUpMenu.innerHTML = "";
     isMenuOpen = false;
+    isGuestPopopOpen = false
+    isCheckInDate = false
+    isCheckOutDate = false
+    isDestinationPopupOpen = false
   }
 });
 
