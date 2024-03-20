@@ -39,7 +39,7 @@
 
     <nav class="navbar navbar-expand-md sticky-top z-1 w-100 position-relative">
       <!-- --------------- Desktop Navbar ---------------- -->
-      <div class="w-100 container-xxl d-none d-md-flex align-items-center gap-2 p-3 py-lg-2 px-lg-5 p-xxl-0">
+      <div class="w-100 container-fluid d-none d-md-flex align-items-center gap-2">
         <div class="d-flex justify-content-between align-items-center w-100" id="homeNav">
           <a href="index.html" class="navbar-brand flex-grow-1">
             <svg width="102" height="32" style="display: block">
@@ -402,13 +402,13 @@
       <!-- ---------------- Menu Navigation ---------------- -->
   </main>
 
-  <section id="menu_list_container" class="container-xxl">
+  <section id="menu_list_container" class="container-fluid">
     <div class='menu_wrapper'>
-      <i id="left" class="bi bi-chevron-left fs-6 fw-bold btn btn-sm border rounded-circle shadow leftArrow"></i>
+      <div id="leftWrapper">
+        <i id="left" class="bi bi-chevron-left fs-6 fw-bold btn btn-sm border rounded-circle shadow leftArrow"></i>
+      </div>
 
-      <i id="right" class="bi bi-chevron-right fs-6 fw-bold btn btn-sm border rounded-circle shadow rightArrow"></i>
-
-      <div class='menu-list px-3 ps-lg-1 pe-lg-4 pt-lg-1 p-xxl-0'>
+      <div class='menu-list'>
         <div class='slide'>
           <img src="/menu-images/amazing-views.jpg" alt="Amazing Views" />
           <p>
@@ -830,7 +830,9 @@
         </div>
       </div>
 
-      <div class="d-none d-md-flex justify-content-center me-3 gap-3 align-items-center flex-grow-1">
+      <div class="d-none d-md-flex justify-content-center pe-4 gap-3 align-items-center flex-grow-1">
+        <i id="right" class="bi bi-chevron-right fs-6 fw-bold btn btn-sm border rounded-circle shadow rightArrow"></i>
+
         <div class="filter-button" data-bs-toggle="modal" data-bs-target="#filterModal">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation"
             focusable="false" style="
@@ -861,7 +863,8 @@
 
 
   <!-- --------------- Filter Modal --------------- -->
-  <div class="modal modal-fullscreen-md-down modal-lg fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal modal-fullscreen-md-down modal-lg fade" id="filterModal" tabindex="-1"
+    aria-labelledby="filterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -885,7 +888,8 @@
               <label class="btn btn-outline-dark fw-bold fs-6 py-3 py-lg-4 text-black" for="btnradio2">Room</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-              <label class="btn btn-outline-dark fw-bold fs-6 py-3 py-lg-4 text-black" for="btnradio3">Entire home</label>
+              <label class="btn btn-outline-dark fw-bold fs-6 py-3 py-lg-4 text-black" for="btnradio3">Entire
+                home</label>
             </div>
           </div>
 
@@ -1128,7 +1132,8 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show more</a>
+            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show
+              more</a>
           </div>
 
           <div class="pt-4 pb-5 border-bottom">
@@ -1142,7 +1147,8 @@
 
               <div class="form-check form-switch">
                 <input class="form-check-input fs-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Instant Book</label>
+                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Instant
+                  Book</label>
               </div>
             </div>
 
@@ -1155,7 +1161,8 @@
 
               <div class="form-check form-switch">
                 <input class="form-check-input fs-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Self check-in</label>
+                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Self
+                  check-in</label>
               </div>
             </div>
 
@@ -1167,7 +1174,8 @@
 
               <div class="form-check form-switch">
                 <input class="form-check-input fs-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Instant Book</label>
+                <label aria-hidden="true" class="form-check-label visually-hidden" for="flexSwitchCheckDefault">Instant
+                  Book</label>
               </div>
             </div>
           </div>
@@ -1211,7 +1219,8 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show more</a>
+            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show
+              more</a>
           </div>
 
           <div class="py-4">
@@ -1252,7 +1261,8 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show more</a>
+            <a href="#" class="mx-0 d-block mt-3 mt-lg-1 fw-medium fs-6 text-decoration-underline text-black">Show
+              more</a>
           </div>
         </div>
 
@@ -1265,6 +1275,330 @@
     </div>
   </div>
   <!-- -------------------- End of Filter Modal ------------------- -->
+
+
+  <!-- --------------------- Accomodations -------------------- -->
+  <div class="container-fluid">
+    <div class="accomodations">
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/aguanga.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Terricciola, Italy</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">Viewed 31,841 times last week</p>
+          <p class="text-muted fw-normal">Apr 5-10</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;147 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/bewerley.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Walden, Colorado, US</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>4.94</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">Viewed 7,361 times last week</p>
+          <p class="text-muted fw-normal ">Mar 3-8</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;121 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/bryson.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Inderoy, Norway</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>4.88</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">Viewed 3,232 times last week</p>
+          <p class="text-muted fw-normal ">Mar 10-15</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;125 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/burke.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Budens, Portugal</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">3,623 Kilometers away</p>
+          <p class="text-muted fw-normal ">Apr 5-10</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;1,622 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/calaca.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Santa Cruz de Tenerife, Spain</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>4.95</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">Playa Berruguete</p>
+          <p class="text-muted fw-normal ">May 5-10</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;108 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/california.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Lagoa, Portugal</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">3,612 Kilometers away</p>
+          <p class="text-muted fw-normal ">May 10-17</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;864 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/canes.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>La Lajita, Spain</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">3,042 Kilometers away</p>
+          <p class="text-muted fw-normal ">Oct 31-Nov 7</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;187 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/canyon.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Nerja Spain</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">Playa de las Alberquillas</p>
+          <p class="text-muted fw-normal ">Jun 8-13</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;185 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/cayman.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Pantelleria, Italy</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">3,482 Kilometers away</p>
+          <p class="text-muted fw-normal ">May 6-13</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;163 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accomodation-wrapper">
+        <div class="image-wrapper">
+          <img src="/accomodation-images/county.webp" class="img-fluid rounded-4" alt="Terricciola, Italy">
+          <div class="favorite-like-wrapper">
+            <div class="favorite">
+              <p>Guest favorite</p>
+            </div>
+
+            <div class="like">
+              <i class="bi bi-suit-heart fs-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="accomodation-content">
+          <div class="content">
+            <h4>Castillo Caleta de Fuste, Spain</h4>
+
+            <div class="rating">
+              <i class="bi bi-star-fill"></i>
+              <span>5.0</span>
+            </div>
+          </div>
+
+          <p class="text-muted fw-normal">3,041 Kilometers away</p>
+          <p class="text-muted fw-normal ">Apr 13-18</p>
+
+          <div class="d-flex align-items-center gap-1 fw-normal text-black-50">
+            <p class="pt-2 text-black fw-medium">&dollar;409 <span class="fw-normal">night</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="calender.js"></script>
   <script type="module" src="menu.js"></script>

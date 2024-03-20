@@ -15,7 +15,7 @@ let menuItemPreview = Math.round(menuList.offsetWidth / firstCardWidth)
 // Add event listeners for the arrow buttons to scroll the carousel left and right
 arrowButtons.forEach(button => {
     button.addEventListener("click", () => {
-        menuList.scrollLeft += button.id === "left" ? -(firstCardWidth * 9) : firstCardWidth * 9
+        menuList.scrollLeft += button.id === "left" ? -(firstCardWidth * 6) : firstCardWidth * 6
     })
 })
 

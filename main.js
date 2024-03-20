@@ -3,6 +3,7 @@ import "./sass/home.scss";
 import "./sass/calender.scss";
 import "./sass/navbar.scss";
 import "./sass/menu.scss";
+import "./sass/accomodation.scss"
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
 
@@ -28,17 +29,13 @@ menuBtn.addEventListener("click", () => {
     searchDestination.classList.remove("whiteBg");
     destinationPopup.classList.remove("showDestinationPopup");
 
-    isGuestPopopOpen = true
-    isCheckInDate = true
-    isCheckOutDate = true
-    isDestinationPopupOpen = true
-    isMenuOpen = true
+    isGuestPopopOpen = false
+    isCheckInDate = false
+    isCheckOutDate = false
+    isDestinationPopupOpen = false
+    isMenuOpen = false
   } else {
     popUpMenu.innerHTML = "";
-    isGuestPopopOpen = true
-    isCheckInDate = true
-    isCheckOutDate = true
-    isDestinationPopupOpen = true
     isMenuOpen = false
    
   }
@@ -184,23 +181,6 @@ middleEast.addEventListener("click", () => {
 searchDestination.addEventListener("click", () => {
   isDestinationPopupOpen = !isDestinationPopupOpen;
 
-  if (calender.classList.contains("showCalender")) {
-    isDestinationPopupOpen = true;
-    checkOutDate.classList.remove("whiteBg");
-    checkInDate.classList.remove("whiteBg");
-    calender.classList.remove("showCalender");
-  }
-
-  if (guestsSection.classList.contains("whiteBg")) {
-    isDestinationPopupOpen = true;
-    isGuestPopopOpen = true;
-    guestsSection.classList.remove("whiteBg");
-    guestPopupContainer.innerHTML = "";
-
-    searchContainer.appendChild(searchText);
-    searchContainer.classList.add("showText");
-  }
-
   if (isDestinationPopupOpen) {
     destinationPopup.classList.add("showDestinationPopup");
     searchDestination.classList.add("whiteBg");
@@ -221,8 +201,24 @@ searchDestination.addEventListener("click", () => {
     subHeaderWrapper.classList.remove("grayBg");
     searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
-
     isGuestPopopOpen = !isGuestPopopOpen;
+  }
+
+  if (calender.classList.contains("showCalender")) {
+    isDestinationPopupOpen = true;
+    checkOutDate.classList.remove("whiteBg");
+    checkInDate.classList.remove("whiteBg");
+    calender.classList.remove("showCalender");
+  }
+
+  if (guestsSection.classList.contains("whiteBg")) {
+    isDestinationPopupOpen = true;
+    isGuestPopopOpen = true;
+    guestsSection.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+
+    searchContainer.appendChild(searchText);
+    searchContainer.classList.add("showText");
   }
 });
 
@@ -973,10 +969,12 @@ subHeaderWrapper.addEventListener("mousedown", (e) => {
   if (!popUpMenu.contains(e.target)) {
     popUpMenu.innerHTML = "";
     isMenuOpen = false;
+
+    /*
     isGuestPopopOpen = false
     isCheckInDate = false
     isCheckOutDate = false
-    isDestinationPopupOpen = false
+    isDestinationPopupOpen = false */
   }
 });
 

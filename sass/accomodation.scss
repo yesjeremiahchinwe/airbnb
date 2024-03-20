@@ -1,0 +1,197 @@
+
+.accomodations {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1.35rem;
+    row-gap: 2.5rem;
+    max-width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.75rem 0;
+}
+
+.filtered {
+    max-width: 95%;
+    margin: 2rem auto;
+}
+
+.load-more {
+    margin: 3rem auto 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #000;
+    }
+
+    button {
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .accomodations {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .filtered {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .accomodations {
+        padding: 0 1.4rem;
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .accomodations {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .accomodations {
+        grid-template-columns: repeat(5, 1fr)
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .accomodations {
+        grid-template-columns: repeat(6, 1fr)
+    }
+}
+
+@media screen and (min-width: 2100px) {
+    .accomodations {
+        grid-template-columns: repeat(7, 1fr)
+    }
+}
+
+a {
+    color: #000;
+}
+
+.accomodation-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000;
+
+    &:hover {
+        .showOnHover {
+            display: flex;
+            z-index: 10;
+        }
+    }
+
+    .image-wrapper {
+        border-radius: 10px;
+        width: 100%;
+        position: relative;
+        z-index: 5;
+        height: 280px;
+
+        img {
+            height: 100%;
+            min-height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .favorite-like-wrapper {
+            position: absolute;
+            width: 100%;
+            top: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.1rem;
+            z-index: 10;
+
+            .favorite {
+                left: 5%;
+                background-color: #fff;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.2rem 0.7rem;
+                border-radius: 30px;
+
+                p {
+                    padding: 0;
+                    font-size: 0.9rem;
+                    margin: 0;
+                    transform: translateY(-1%);
+                }
+            }
+
+            .like {
+                right: 5%;
+                margin-left: auto;
+                background-color: rgba(0, 0, 0, 0.6);
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                z-index: 10;
+            }
+        }
+    }
+
+    .accomodation-content {
+        width: 100%;
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h4 {
+                font-size: 1.1rem;
+                font-weight: 600;
+
+                a {
+                    color: #000;
+                }
+            }
+
+            .rating {
+                display: flex;
+                align-items: center;
+                gap: 0.15rem;
+                font-weight: 500;
+            }
+        }
+
+        p {
+            margin: -0.38rem 0 0.1rem 0;
+        }
+    }
+}

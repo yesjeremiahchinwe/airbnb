@@ -7,7 +7,7 @@ body {
 
 header {
   z-index: 100;
-  // border-bottom: 1px solid rgba(221, 221, 221, 0.7);
+  height: 80px;
 }
 
 #mainElement {
@@ -448,6 +448,10 @@ li {
 }
 
 @media screen and (min-width: 760px) {
+  header {
+    padding: 0.5rem 1.65rem;
+  }
+  
   #filterModal {
     .modal-body {
       padding: 1.5rem 2rem;
