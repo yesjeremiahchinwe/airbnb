@@ -7,10 +7,11 @@ document.addEventListener("scroll", () => {
   const scrollY = document.documentElement.scrollTop;
   currentHeight = scrollY;
 
-  if (scrollY !== 0) {
+  if (scrollY > 80) {
     footerContainer.classList.add("hide");
     footerContainer.classList.remove("fixed");
-  } else if (scrollY === 0) {
+
+  } else {
     footerContainer.classList.add("fixed");
     footerContainer.classList.remove("hide");
   }

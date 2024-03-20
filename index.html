@@ -86,13 +86,17 @@
             <div
               class="d-none d-lg-flex column-gap-2 align-items-center text-center justify-content-end flex-grow-1"
             >
-              <button type="button" class="btn fw-semibold text-secondary">
+              <button type="button" class="btn fs-6 rounded-pill" id="stays">
                 Stays
               </button>
-              <button type="button" class="btn fs-6 fw-semibold text-secondary">
+              <button
+                type="button"
+                class="btn fs-6 rounded-pill"
+                id="experiences"
+              >
                 Experiences
               </button>
-              <a href="experiences.html" class="btn fw-semibold text-secondary"
+              <a href="experiences.html" class="btn fw-medium text-muted"
                 >Online Experiences</a
               >
             </div>
@@ -167,9 +171,9 @@
 
       <div class="divider"></div>
 
-      <div class="filter" id="checkInDatePopup">
+      <div class="filter halfFilter" id="checkInDatePopup">
         <div>
-          <h6>Check in</h6>
+          <h6 class="checkIn">Check in</h6>
           <p id="displayCheckInDate">Add dates</p>
         </div>
 
@@ -178,17 +182,30 @@
         ></span>
       </div>
 
-      <div class="divider"></div>
+      <div class="fullFilter">
+        <div class="filter" id="checkInDatePopup">
+          <div>
+            <h6 class="checkIn">Check in</h6>
+            <p id="displayCheckInDate">Add dates</p>
+          </div>
 
-      <div class="filter" id="checkOutDatePopup">
-        <div>
-          <h6>Check out</h6>
-          <p id="displayCheckOutDate">Add dates</p>
+          <span id="closeCheckInBtn" class="btn fs-5 btn-sm rounded-circle"
+            ><i class="bi bi-x"></i
+          ></span>
         </div>
 
-        <span id="closeCheckOutBtn" class="btn fs-5 btn-sm rounded-circle"
-          ><i class="bi bi-x"></i
-        ></span>
+        <div class="divider"></div>
+
+        <div class="filter" id="checkOutDatePopup">
+          <div>
+            <h6>Check out</h6>
+            <p id="displayCheckOutDate">Add dates</p>
+          </div>
+
+          <span id="closeCheckOutBtn" class="btn fs-5 btn-sm rounded-circle"
+            ><i class="bi bi-x"></i
+          ></span>
+        </div>
       </div>
 
       <div class="divider"></div>
@@ -217,8 +234,10 @@
         </div>
       </div>
 
+      <!-- ------------------ Guest Popup ------------------- -->
       <div id="popUpGuests" class="shadow"></div>
 
+      <!-- ------------------------- Destination Popup --------------------------- -->
       <div id="destinationPopup" class="shadow">
         <div>
           <h6 class="fw-bold">Search by region</h6>
@@ -531,14 +550,7 @@
         </div>
       </div>
 
-      <!-- <div className={classes["buttons-mobile"]}>
-      <Button title="Stays"></Button>
-      <Button title="Experiences"></Button>
-      <Button title="Online Experience"></Button>
-    </div> -->
-
       <!-- ---------------- Menu Navigation ---------------- -->
-
       <section id="menu_list_container" class="container-fluid">
         <div class="menu_wrapper">
           <div id="leftWrapper">

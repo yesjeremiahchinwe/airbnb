@@ -8,6 +8,7 @@ import "./sass/footer.scss";
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
 
+
 /* -------- Menu Popup ---------- */
 const menuBtn = document.getElementById("menuBtn");
 const popUpMenu = document.querySelector(".popup");
@@ -41,6 +42,30 @@ menuBtn.addEventListener("click", () => {
 });
 
 /* ---------- Sub header ------------ */
+const stays = document.getElementById("stays")
+const experiences = document.getElementById("experiences")
+const halfFilter = document.querySelector(".halfFilter")
+const fullFilter = document.querySelector(".fullFilter")
+const checkIn = document.querySelector(".checkIn")
+
+stays.classList.add("bolderText")
+
+stays.addEventListener("click", () => {
+  experiences.classList.remove("bolderText")
+  stays.classList.add("bolderText")
+
+  halfFilter.classList.remove("showHalfFilter")
+  fullFilter.classList.remove("hideFullFilter")
+})
+
+experiences.addEventListener("click", () => {
+  stays.classList.remove("bolderText")
+  experiences.classList.add("bolderText")
+
+  halfFilter.classList.add("showHalfFilter")
+  fullFilter.classList.add("hideFullFilter")
+  checkIn.textContent = "Date"
+})
 
 const searchDestination = document.getElementById("searchDestination");
 const destinationPopup = document.getElementById("destinationPopup");
@@ -961,7 +986,6 @@ homeNav.addEventListener("mousedown", (e) => {
     isGuestPopopOpen = false;
     subHeaderWrapper.classList.remove("grayBg");
     guestsSection.classList.remove("whiteBg");
-    searchContainer.removeChild(searchText);
     searchContainer.classList.remove("showText");
   }
 
