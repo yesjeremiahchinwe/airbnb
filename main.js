@@ -7,6 +7,7 @@ import "./sass/accomodation.scss";
 import "./sass/footer.scss";
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
+import { FALSE } from "sass";
 
 
 /* -------- Menu Popup ---------- */
@@ -29,11 +30,14 @@ menuBtn.addEventListener("click", () => {
     checkOutDate.classList.remove("whiteBg");
     searchDestination.classList.remove("whiteBg");
     destinationPopup.classList.remove("showDestinationPopup");
+    checkInDatePopupHalfFilter.classList.remove("whiteBg");
+
 
     isGuestPopopOpen = false;
     isCheckInDate = false;
     isCheckOutDate = false;
     isDestinationPopupOpen = false;
+    ischeckInDatePopupHalfFilter = false
     isMenuOpen = false;
   } else {
     popUpMenu.innerHTML = "";
@@ -51,7 +55,10 @@ const checkIn = document.querySelector(".checkIn")
 stays.classList.add("bolderText")
 
 stays.addEventListener("click", () => {
+  isCheckInDate = false
+  isCheckOutDate = false
   experiences.classList.remove("bolderText")
+  checkInDatePopupHalfFilter.classList.remove("whiteBg");
   stays.classList.add("bolderText")
 
   halfFilter.classList.remove("showHalfFilter")
@@ -59,6 +66,8 @@ stays.addEventListener("click", () => {
 })
 
 experiences.addEventListener("click", () => {
+  ischeckInDatePopupHalfFilter = false
+  checkInDatePopupHalfFilter.classList.remove("whiteBg");
   stays.classList.remove("bolderText")
   experiences.classList.add("bolderText")
 
@@ -72,6 +81,8 @@ const destinationPopup = document.getElementById("destinationPopup");
 
 export const checkInDate = document.getElementById("checkInDatePopup");
 export const checkOutDate = document.getElementById("checkOutDatePopup");
+export const checkInDatePopupHalfFilter = document.getElementById("checkInDatePopupHalfFilter");
+
 const calender = document.querySelector(".date-calender");
 
 const addGuests = document.getElementById("addGuests");
@@ -82,6 +93,7 @@ const guestsSection = document.getElementById("guests");
 const searchContainer = document.querySelector(".search-icon");
 const searchText = document.createElement("span");
 const closeBtn = document.getElementById("closeBtn");
+const closeCheckInBtnFullFilter = document.getElementById("closeCheckInBtnFullFilter");
 const guestPopupContainer = document.getElementById("popUpGuests");
 searchText.textContent = "Search";
 
@@ -89,6 +101,7 @@ let isDestinationPopupOpen = false;
 let isGuestPopopOpen = false;
 let isCheckInDate = false;
 let isCheckOutDate = false;
+let ischeckInDatePopupHalfFilter = false;
 
 /* ------------------------- Search Destination ------------------- */
 const searchDesValue = document.getElementById("searchDesValue");
@@ -218,9 +231,11 @@ searchDestination.addEventListener("click", () => {
     isGuestPopopOpen = false;
     isCheckInDate= false
     isCheckOutDate = false
+    ischeckInDatePopupHalfFilter = false
 
     checkOutDate.classList.remove("whiteBg");
     checkInDate.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.remove("whiteBg");
     calender.classList.remove("showCalender");
   } else {
     destinationPopup.classList.remove("showDestinationPopup");
@@ -284,6 +299,7 @@ guestsSection.addEventListener("click", () => {
     isDestinationPopupOpen = false;
     isCheckInDate= false
     isCheckOutDate = false
+    ischeckInDatePopupHalfFilter = false
     guestPopupContainer.innerHTML = guestPop();
     subHeaderWrapper.classList.add("grayBg");
     guestsSection.classList.add("whiteBg");
@@ -294,6 +310,7 @@ guestsSection.addEventListener("click", () => {
 
     checkOutDate.classList.remove("whiteBg");
     checkInDate.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.remove("whiteBg");
     calender.classList.remove("showCalender");
 
     /* -------- Guest Popup ----------- */
@@ -349,6 +366,7 @@ guestsSection.addEventListener("click", () => {
         addGuests.textContent = savedChildrenCount + savedAdultCount + "+";
         childrenCount.textContent = savedChildrenCount;
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
 
       const originText = addGuests.textContent;
@@ -365,6 +383,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -408,6 +427,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -487,6 +507,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -564,6 +585,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -629,6 +651,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -679,6 +702,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
 
@@ -740,6 +764,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
 
       const subText = addInfants.textContent.substring(0, 5) + "...";
@@ -783,6 +808,7 @@ guestsSection.addEventListener("click", () => {
         closeBtn.classList.add("showCloseBtn");
       } else {
         closeBtn.classList.remove("showCloseBtn");
+        closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
       }
     });
   } else {
@@ -857,6 +883,62 @@ checkInDate.addEventListener("click", () => {
     isDestinationPopupOpen = false;
     isGuestPopopOpen= false
     isCheckOutDate = false
+
+    checkOutDate.classList.remove("whiteBg");
+  } else {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.remove("grayBg");
+    checkInDate.classList.remove("whiteBg");
+    searchContainer.classList.remove("showText");
+    calender.classList.remove("showCalender");
+  }
+});
+
+/* ---------------- CheckinDate for Experiences ------------------- */
+checkInDatePopupHalfFilter.addEventListener("click", () => {
+  ischeckInDatePopupHalfFilter = !ischeckInDatePopupHalfFilter
+  checkOutDate.classList.remove("whiteBg");
+
+  if (guestsSection.classList.contains("whiteBg")) {
+    ischeckInDatePopupHalfFilter = true;
+    guestPopupContainer.innerHTML = "";
+    guestsSection.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.add("whiteBg");
+    checkOutDate.classList.remove("whiteBg");
+    calender.classList.add("showCalender");
+
+    isGuestPopopOpen = true;
+
+    if (!searchContainer.textContent.includes("Search")) {
+      searchContainer.appendChild(searchText);
+    }
+    searchContainer.classList.add("showText");
+  }
+
+  if (searchDestination.classList.contains("whiteBg")) {
+    ischeckInDatePopupHalfFilter = true;
+    destinationPopup.classList.remove("showDestinationPopup");
+    searchDestination.classList.remove("whiteBg");
+    guestPopupContainer.innerHTML = "";
+
+    isDestinationPopupOpen = true;
+  }
+
+  if (ischeckInDatePopupHalfFilter) {
+    guestPopupContainer.innerHTML = "";
+    subHeaderWrapper.classList.add("grayBg");
+    guestsSection.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.add("whiteBg");
+    if (!searchContainer.textContent.includes("Search")) {
+      searchContainer.appendChild(searchText);
+    }
+    searchContainer.classList.add("showText");
+    calender.classList.add("showCalender");
+
+    isDestinationPopupOpen = false;
+    isGuestPopopOpen= false
+    isCheckOutDate = false
+    isCheckInDate = false
 
     checkOutDate.classList.remove("whiteBg");
   } else {
@@ -950,6 +1032,7 @@ closeBtn.addEventListener("click", (e) => {
   }
 
   closeBtn.classList.remove("showCloseBtn");
+  closeCheckInBtnFullFilter.classList.remove("showCloseBtn");
 });
 
 /* ------------ Close All Popups when clicked outside ------------- */

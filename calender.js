@@ -99,6 +99,8 @@ const options = {
         displayCheckInDate.textContent = "Add dates"
         closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
         closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
+        displayCheckOutDate.classList.remove("boldText");
+        displayCheckInDate.classList.remove("boldText");
       })
 
       closeCheckInBtn.addEventListener("click", () => {
@@ -107,6 +109,8 @@ const options = {
         displayCheckOutDate.textContent = "Add dates"
         closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
         closeCheckInBtn.classList.remove("showCloseCheckOutBtn")
+        displayCheckInDate.classList.remove("boldText");
+        displayCheckOutDate.classList.remove("boldText");
       })
     },
   },

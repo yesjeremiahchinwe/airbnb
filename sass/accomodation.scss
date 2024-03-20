@@ -14,79 +14,6 @@
     margin: 2rem auto;
 }
 
-.load-more {
-    margin: 3rem auto 5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    h4 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #000;
-    }
-
-    button {
-        background-color: #000;
-        color: #fff;
-        padding: 1rem 2rem;
-        margin-top: 1rem;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-}
-
-@media screen and (min-width: 550px) {
-    .accomodations {
-        grid-template-columns: repeat(2, 1fr)
-    }
-}
-
-@media screen and (min-width: 750px) {
-    .filtered {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .accomodations {
-        padding: 0 1.4rem;
-        grid-template-columns: repeat(3, 1fr)
-    }
-}
-
-@media screen and (min-width: 1100px) {
-    .accomodations {
-        grid-template-columns: repeat(4, 1fr)
-    }
-}
-
-@media screen and (min-width: 1400px) {
-    .accomodations {
-        grid-template-columns: repeat(5, 1fr)
-    }
-}
-
-@media screen and (min-width: 1800px) {
-    .accomodations {
-        grid-template-columns: repeat(6, 1fr)
-    }
-}
-
-@media screen and (min-width: 2100px) {
-    .accomodations {
-        grid-template-columns: repeat(7, 1fr)
-    }
-}
-
 a {
     color: #000;
 }
@@ -113,7 +40,7 @@ a {
         width: 100%;
         position: relative;
         z-index: 5;
-        height: 280px;
+        height: 380px;
 
         img {
             height: 100%;
@@ -193,5 +120,54 @@ a {
         p {
             margin: -0.38rem 0 0.1rem 0;
         }
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .accomodations {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .filtered {
+        display: none;
+    }
+
+    .accomodation-wrapper {
+        .image-wrapper {
+            height: 290px;
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .accomodations {
+        padding: 0 1.4rem;
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .accomodations {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .accomodations {
+        grid-template-columns: repeat(5, 1fr)
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .accomodations {
+        grid-template-columns: repeat(6, 1fr)
+    }
+}
+
+@media screen and (min-width: 2100px) {
+    .accomodations {
+        grid-template-columns: repeat(7, 1fr)
     }
 }
