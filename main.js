@@ -243,7 +243,6 @@ searchDestination.addEventListener("click", () => {
     guestPopupContainer.innerHTML = "";
     subHeaderWrapper.classList.remove("grayBg");
     searchContainer.classList.remove("showText");
-    // isGuestPopopOpen = !isGuestPopopOpen;
   }
 
   if (calender.classList.contains("showCalender")) {
@@ -1062,10 +1061,12 @@ homeNav.addEventListener("mousedown", (e) => {
   if (!calender.contains(e.target)) {
     checkInDate.classList.remove("whiteBg");
     checkOutDate.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.remove("whiteBg")
     subHeaderWrapper.classList.remove("grayBg");
     checkOutDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
+    ischeckInDatePopupHalfFilter = false
     isCheckInDate = !isCheckInDate;
     isCheckOutDate = !isCheckOutDate;
   }
@@ -1113,10 +1114,12 @@ mainElement.addEventListener("mousedown", (e) => {
   if (!calender.contains(e.target)) {
     checkInDate.classList.remove("whiteBg");
     checkOutDate.classList.remove("whiteBg");
+    checkInDatePopupHalfFilter.classList.remove("whiteBg")
     subHeaderWrapper.classList.remove("grayBg");
     checkOutDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
+    ischeckInDatePopupHalfFilter = false
     isCheckInDate = !isCheckInDate;
     isCheckOutDate = !isCheckOutDate;
   }
