@@ -20,6 +20,7 @@ menuBtn.addEventListener("click", () => {
   isMenuOpen = !isMenuOpen;
 
   if (isMenuOpen) {
+    isMenuOpen = true;
     popUpMenu.innerHTML = userDetails();
     guestPopupContainer.innerHTML = "";
     subHeaderWrapper.classList.remove("grayBg");
@@ -38,7 +39,6 @@ menuBtn.addEventListener("click", () => {
     isCheckOutDate = false;
     isDestinationPopupOpen = false;
     ischeckInDatePopupHalfFilter = false
-    isMenuOpen = false;
   } else {
     popUpMenu.innerHTML = "";
     isMenuOpen = false;
@@ -50,7 +50,7 @@ const stays = document.getElementById("stays")
 const experiences = document.getElementById("experiences")
 const halfFilter = document.querySelector(".halfFilter")
 const fullFilter = document.querySelector(".fullFilter")
-const checkIn = document.querySelector(".checkIn")
+const checkInHalfFilter = document.querySelector(".checkInHalfFilter")
 
 stays.classList.add("bolderText")
 
@@ -73,7 +73,7 @@ experiences.addEventListener("click", () => {
 
   halfFilter.classList.add("showHalfFilter")
   fullFilter.classList.add("hideFullFilter")
-  checkIn.textContent = "Date"
+  checkInHalfFilter.textContent = "Date"
 })
 
 const searchDestination = document.getElementById("searchDestination");
@@ -243,7 +243,7 @@ searchDestination.addEventListener("click", () => {
     guestPopupContainer.innerHTML = "";
     subHeaderWrapper.classList.remove("grayBg");
     searchContainer.classList.remove("showText");
-    isGuestPopopOpen = !isGuestPopopOpen;
+    // isGuestPopopOpen = !isGuestPopopOpen;
   }
 
   if (calender.classList.contains("showCalender")) {
@@ -943,12 +943,18 @@ checkInDatePopupHalfFilter.addEventListener("click", () => {
     checkOutDate.classList.remove("whiteBg");
   } else {
     guestPopupContainer.innerHTML = "";
+    checkInDatePopupHalfFilter.classList.remove("whiteBg");
     subHeaderWrapper.classList.remove("grayBg");
     checkInDate.classList.remove("whiteBg");
     searchContainer.classList.remove("showText");
     calender.classList.remove("showCalender");
   }
 });
+
+closeCheckInBtnFullFilter.addEventListener("click", (e) => {
+  e.stopPropagation()
+})
+
 
 /* ------------------- Calender - Checkout Date --------------- */
 checkOutDate.addEventListener("click", () => {

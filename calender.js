@@ -55,16 +55,21 @@ const options = {
           : "Add dates";
 
       const displayCheckInDate = document.getElementById("displayCheckInDate");
-      const displayCheckOutDate = document.getElementById(
-        "displayCheckOutDate"
-      );
+      const displayCheckOutDate = document.getElementById("displayCheckOutDate");
+      const displayCheckInDateHalfFilter = document.getElementById("displayCheckInDateHalfFilter")
+      const checkInDatePopupHalfFilter = document.getElementById("checkInDatePopupHalfFilter")
+
       const closeCheckOutBtn = document.getElementById("closeCheckOutBtn")
       const closeCheckInBtn = document.getElementById("closeCheckInBtn")
+      const closeCheckInBtnFullFilter = document.getElementById("closeCheckInBtnFullFilter")
 
       const checkInText = displayCheckInDate.textContent;
 
       const checkOutText = displayCheckOutDate.textContent;
 
+      const checkInDateHalfFilterText = displayCheckInDateHalfFilter.textContent
+
+      /* -------------------- Check in date selection ---------------- */
       if (checkInText && checkInDate.classList.contains("whiteBg")) {
         displayCheckInDate.textContent = checkInMonth + " " + getCheckInDay;
         displayCheckInDate.classList.add("boldText");
@@ -79,6 +84,7 @@ const options = {
         return
       }
       
+      /* -------------------- Check out date selection ---------------- */
       if (checkOutText && checkOutDate.classList.contains("whiteBg")) {
         displayCheckOutDate.textContent = checkInMonth + " " + getCheckInDay;
         displayCheckOutDate.classList.add("boldText");
@@ -90,6 +96,20 @@ const options = {
         checkOutDate.classList.remove("whiteBg");
         checkInDate.classList.add("whiteBg");
         closeCheckOutBtn.classList.remove("showCloseCheckOutBtn")
+        return
+      }
+
+      /* ------------- CheckIn & CheckOut Date in the experience Tab -------------- */
+      if (checkInDateHalfFilterText && checkInDatePopupHalfFilter.classList.contains("whiteBg")) {
+        displayCheckInDateHalfFilter.textContent = checkInMonth + " " + getCheckInDay;
+        displayCheckInDateHalfFilter.classList.add("boldText");
+        closeCheckInBtnFullFilter.classList.add("showCloseCheckOutBtn")
+
+        closeCheckInBtnFullFilter.addEventListener("click", () => {
+          displayCheckInDateHalfFilter.textContent = "Add dates"
+          displayCheckInDateHalfFilter.classList.remove("boldText");
+          closeCheckInBtnFullFilter.classList.remove("showCloseCheckOutBtn")
+        })
         return
       }
 

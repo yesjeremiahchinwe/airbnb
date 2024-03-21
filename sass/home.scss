@@ -168,6 +168,17 @@ li {
   }
 }
 
+#displayCheckInDateHalfFilter {
+  display: flex;
+
+  &.boldText {
+    color: black;
+    font-weight: 700;
+    font-size: 0.90rem;
+    margin-top: -0.25;
+  }
+}
+
 
 .fullFilter {
   display: flex;
@@ -315,8 +326,13 @@ li {
   margin-top: 1rem;
 }
 
+.halfFilter h6 {
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+
 .filter p,
-.last-filter span {
+.last-filter span, .halfFilterChecking {
   color: #717171;
   margin-top: -0.5rem;
 
@@ -363,6 +379,7 @@ li {
 
 #closeCheckOutBtn,
 #closeCheckInBtn,
+#closeCheckInBtnFullFilter,
 #closeDesBtn {
   display: none;
   background-color: transparent;
