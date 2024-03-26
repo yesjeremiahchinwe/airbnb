@@ -7,7 +7,6 @@ import "./sass/accomodation.scss";
 import "./sass/footer.scss";
 import guestPop from "./utils/guestPopup";
 import userDetails from "./utils/userDetials";
-import { FALSE } from "sass";
 
 
 /* -------- Menu Popup ---------- */
@@ -44,6 +43,7 @@ menuBtn.addEventListener("click", () => {
     isMenuOpen = false;
   }
 });
+
 
 /* ---------- Sub header ------------ */
 const stays = document.getElementById("stays")
