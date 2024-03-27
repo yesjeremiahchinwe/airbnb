@@ -1,6 +1,9 @@
-import "./sass/online-experience.scss";
-import "./sass/collections.scss";
-import { collections } from "./lib/collections";
+import "../sass/collections.scss";
+import "../sass/online-plans.scss";
+import "../sass/online-experience.scss";
+import { collections } from "../lib/collections";
+import { filterCollections } from "../lib/navigate-experiences";
+
 
 /* --------------- Navbar Menu ------------------ */
 const menuBtnOnlineExperience = document.getElementById(
@@ -22,7 +25,6 @@ menuBtnOnlineExperience.addEventListener("click", () => {
   }
 });
 
-
 /* -------------- Collections ------------- */
 const parentCollections = document.getElementById("allCollections");
 
@@ -40,4 +42,15 @@ collections.forEach((collection) => {
     </div>`;
 
   parentCollections.appendChild(renderCollection);
+});
+
+/* ----------------- Filters -------------------- */
+const navigateExpereinces = document.getElementById("navigateExpereinces");
+
+filterCollections.forEach((filter) => {
+  const renderFilter = document.createElement("section");
+  navigateExpereinces.classList.add("navigate_expereinces");
+  renderFilter.innerHTML = `<div><p>${filter.content}</p></div>`;
+
+  navigateExpereinces.appendChild(renderFilter);
 });

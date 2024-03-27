@@ -1,12 +1,12 @@
-import "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./sass/home.scss";
-import "./sass/calender.scss";
-import "./sass/navbar.scss";
-import "./sass/menu.scss";
-import "./sass/accomodation.scss";
-import "./sass/footer.scss";
-import guestPop from "./utils/guestPopup";
-import userDetails from "./utils/userDetials";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "../sass/home.scss";
+import "../sass/calender.scss";
+import "../sass/navbar.scss";
+import "../sass/menu.scss";
+import "../sass/accomodation.scss";
+import "../sass/footer.scss";
+import guestPop from "../utils/guestPopup.js";
+import userDetails from "../utils/userDetials.js";
 
 
 /* -------- Menu Popup ---------- */
